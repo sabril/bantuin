@@ -1,4 +1,9 @@
 Bantuin::Application.routes.draw do
+  devise_for :users do
+    get "/login" => "devise/sessions#new"
+    get "/logout" => "devise/sessions#destroy"
+  end
+
   get "home/index"
 
   ActiveAdmin.routes(self)
