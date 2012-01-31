@@ -7,18 +7,23 @@ gem 'rails', '3.2.0'
 
 gem 'pg'
 gem 'devise'
-gem 'twitter-bootstrap-rails', :git => 'http://github.com/seyhunak/twitter-bootstrap-rails.git'
+#gem 'twitter-bootstrap-rails', :git => 'http://github.com/seyhunak/twitter-bootstrap-rails.git'
 gem 'activeadmin', :git => 'git://github.com/gregbell/active_admin.git'
 gem "carrierwave"
 gem "mini_magick"
 gem 'jquery-rails'
+gem "faker"
+gem "haml-rails"
+gem "rails3-generators"
+gem "kaminari"
+gem "cancan"
 
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
-
+  gem 'less-rails-bootstrap'
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer'
 
@@ -41,3 +46,10 @@ gem 'jquery-rails'
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
+
+group :test, :development do
+  gem "rspec-rails", "~> 2.6"
+  gem "webrat"
+  gem "capybara"
+  gem 'factory_girl_rails'
+end

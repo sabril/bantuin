@@ -1,8 +1,12 @@
 Bantuin::Application.routes.draw do
+  get "home/index"
+
   ActiveAdmin.routes(self)
 
   devise_for :admin_users, ActiveAdmin::Devise.config
-  root :to => "admin/dashboard#index"
+  root :to => "home#index"
+  match 'home/about' => "home#about"
+  match 'home/contact' => "home#contact"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
