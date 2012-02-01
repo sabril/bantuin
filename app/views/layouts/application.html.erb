@@ -4,19 +4,21 @@
     <%= render :partial => "common/head"%>
   </head>
   <body>
-    <div class="topbar">
-      <%= render :partial => "common/topbar"%>
+    <div class="navbar navbar-fixed-top">
+		<%= render :partial => "common/topbar"%>
     </div>
-    <div class="container">
-      <div class="content">
-        <div class="page-header">
-          <%= render :partial => "common/header"%>
-        </div>
-        <div class="row">
-          <div class="span14"><%= render :partial => 'common/flashes' %></div>
-          <%= yield %>
-        </div>
-      </div>
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span12">
+        	<%= render :partial => "common/flashes"%>
+        </div><!--/span-->
+      </div><!--/row-->
+      <div class="row-fluid">
+        <%= yield %>
+      </div><!--/row-->
+
+      <hr>
+
       <footer>
         <%= render :partial => "common/footer"%>
       </footer>

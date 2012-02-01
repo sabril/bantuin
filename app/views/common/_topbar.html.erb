@@ -1,7 +1,14 @@
-<div class="fill">
-  <div class="container">
-    <%= link_to "Logo Here", root_path, :class => "brand" %>
-    <%= render :partial => "common/menu"%>
-    <%= render :partial => "common/session_menu"%>
-  </div>
-</div>
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="i-bar"></span>
+            <span class="i-bar"></span>
+            <span class="i-bar"></span>
+          </a>
+          <a class="brand" href="/">Bantuin</a>
+          <div class="nav-collapse">
+			<%= render :partial => "common/menu"%>
+            <%= render :partial => "common/session_menu"%>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>

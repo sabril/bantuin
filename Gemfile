@@ -24,7 +24,7 @@ gem "simple_form"
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
-  gem 'less-rails-bootstrap'
+  gem 'less-rails-bootstrap', :git => "git://github.com/metaskills/less-rails-bootstrap.git"
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer'
 
