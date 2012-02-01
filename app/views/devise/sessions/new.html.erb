@@ -1,9 +1,18 @@
-<h2>Sign in</h2>
-	<%= simple_form_for(resource,:html => { :class => 'form-horizontal' }, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-  	<%= f.input :email,:wrapper => :prepend, :required => false, :autofocus => true %>
-  	<%= f.input :password, :required => false %>
-    <%= f.input :remember_me, :as => :boolean if devise_mapping.rememberable? %>
-  	<%= f.submit "Sign in", :class => "btn-primary btn-large" %> 
-	<% end %>
-	<%= render "links" %>
+<div class="row-fluid">
+	<div class="span4">&nbsp;</div>
+	<div class="span4">
+		<div class="well">
+		<div class="head_name">
+			<h2>Sign in</h2>
+		</div>
+		<%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+	  	<%= f.input :email,:input_html => { :class => "span11" },:wrapper => :prepend, :required => false, :autofocus => true %>
+ 	 	<%= f.input :password,:input_html => { :class => "span11" },:wrapper_html => { :class => 'username' }, :required => false %>
+ 	    <%= f.input :remember_me, :as => :boolean if devise_mapping.rememberable? %>
+ 	 	<%= f.submit "Sign in", :class => "btn-primary btn-large" %> 
+		<% end %>
+		<%= render "links" %>
+		</div>
+		</div>
+</div>
 

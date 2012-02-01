@@ -1,15 +1,16 @@
-<h2>Forgot your password?</h2>
-
-<%= simple_form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="inputs">
-    <%= f.input :email, :required => true %>
-  </div>
-
-  <div class="actions">
-    <%= f.button :submit, "Send me reset password instructions" %>
-  </div>
-<% end %>
-
-<%= render "links" %>
+<div class="row-fluid">
+	<div class="span4"> &nbsp;</div>
+	<div class="span4">
+		<div class="well">
+		<div class="head_name">
+			<h2>Forgot your password?</h2>
+		</div>	
+		<%= simple_form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
+  		<%= f.error_notification %>
+    	<%= f.input :email,:input_html => { :class => "span11" }, :required => true %>
+    	<%= f.submit "Send me reset password instructions",:class => "btn-primary btn-large"  %>
+		<% end %>
+		<%= render "links" %>
+		</div>
+	</div>
+</div>

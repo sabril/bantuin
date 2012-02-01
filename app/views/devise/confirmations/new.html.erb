@@ -1,15 +1,16 @@
-<h2>Resend confirmation instructions</h2>
-
-<%= simple_form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post }) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="inputs">
-    <%= f.input :email, :required => true %>
-  </div>
-
-  <div class="actions">
-    <%= f.button :submit, "Resend confirmation instructions" %>
-  </div>
-<% end %>
-
-<%= render "links" %>
+<div class="row-fluid">
+	<div class="span4">&nbsp;</div>
+	<div class="span4">
+		<div class="well">
+			<div class="head_name">
+				<h3>Resend confirmation instructions</h3>
+			</div>
+			<%= simple_form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post }) do |f| %>
+  			<%= f.error_notification %>
+    		<%= f.input :email,:input_html => { :class => "span11" }, :required => true %>
+    		<%= f.submit "Resend confirmation instructions", :class => "btn-primary btn-large" %>
+			<% end %>
+			<%= render "links" %>
+		</div>
+	</div>
+</div>
