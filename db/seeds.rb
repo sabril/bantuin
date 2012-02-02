@@ -4,10 +4,10 @@ AdminUser.create!(:email => 'lophyounee@gmail.com', :password => '107039', :pass
 
 # Create a default provider user
 puts "BIKIN USER"
-ipul = User.create!(:email => 'syaiful.sabril@gmail.com', :password => 'Passw0rd', :password_confirmation => 'Passw0rd', :first_name => "syaiful", :last_name => "sabril", roles: ["employer"])
+ipul = User.new(:email => 'syaiful.sabril@gmail.com', :password => 'Passw0rd', :password_confirmation => 'Passw0rd', :first_name => "syaiful", :last_name => "sabril", roles: ["employer"])
 ipul.skip_confirmation!
 ipul.save
-adhi = User.create!(:email => 'artdvl91@gmail.com', :password => 'Passw0rd', :password_confirmation => 'Passw0rd', :first_name => "adhiguna", :last_name => "sabril", roles: ["provider"])
+adhi = User.new(:email => 'artdvl91@gmail.com', :password => 'Passw0rd', :password_confirmation => 'Passw0rd', :first_name => "adhiguna", :last_name => "sabril", roles: ["provider"])
 adhi.skip_confirmation!
 adhi.save
 

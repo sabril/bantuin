@@ -44,3 +44,7 @@ input.boolean{
 	color: #FF0000;
 	margin-bottom: 10px;
 }
+
+span.hint{
+	margin-left: 5px;
+}

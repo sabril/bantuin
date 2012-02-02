@@ -1,7 +1,9 @@
 Bantuin::Application.routes.draw do
+
   devise_for :users do
     get "/login" => "devise/sessions#new"
     get "/logout" => "devise/sessions#destroy"
+    get "/user_profile" => "devise/registrations#edit"
   end
 
   get "home/index"

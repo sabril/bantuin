@@ -1,22 +1,31 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="row-fluid">
+	<%= render "link/menu_link" %>
+	<div class="span9">
+		<div class="well">
+			<h2>Edit Profile</h2>
+		</div>
+		<div class="row-fluid">
+		<div class="span8">
+			<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+  			<%= f.error_notification %>
+  			<%= f.input :avatar, :as => :file %>
+  			<%= f.input :first_name, :required => true, :autofocus => true %>
+  			<%= f.input :last_name, :required => true %>
+  			<%= f.input :email, disabled: true %>
+  			<%= f.input :password, :hint => "leave it blank if you don't want to change it", :required => false %>
+  			<%= f.input :password_confirmation, :required => false %>
+  			<%= f.input :current_password, :hint => "we need your current password to confirm your changes", :required => true %>
+  			<%= f.submit "Save", :class => "btn-primary btn-large" %> 
+			<% end %>
+		</div>
+		<div class="span4">
+			<div class="well">
+				<%= image_tag(current_user.avatar) if current_user.avatar? %>
+				<h3>Hapus akun</h3>
+				<p> Tidak senang dengan kami? <%= link_to "Hapus akun anda", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete %>.</p>
+			</div>	
+		</div>
+	</div>
+	</div>
+</div>
 
-<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="inputs">
-    <%= f.input :email, :required => true, :autofocus => true %>
-    <%= f.input :password, :hint => "leave it blank if you don't want to change it", :required => false %>
-    <%= f.input :password_confirmation, :required => false %>
-    <%= f.input :current_password, :hint => "we need your current password to confirm your changes", :required => true %>
-  </div>
-
-  <div class="actions">
-    <%= f.button :submit, "Update" %>
-  </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete %>.</p>
-
-<%= link_to "Back", :back %>

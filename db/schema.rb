@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120131161623) do
+ActiveRecord::Schema.define(:version => 20120202103011) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -69,6 +69,7 @@ ActiveRecord::Schema.define(:version => 20120131161623) do
     t.integer  "roles_mask",             :default => 2
     t.datetime "created_at",                                :null => false
     t.datetime "updated_at",                                :null => false
+    t.string   "avatar"
   end
 
   add_index "users", ["authentication_token"], :name => "index_users_on_authentication_token", :unique => true
