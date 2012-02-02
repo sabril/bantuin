@@ -30,3 +30,17 @@ input.boolean{
 	margin-bottom: 5px;
 }
 
+.error_notification{
+	color: #FF0000;
+	background: #F8BDBD;
+	padding: 5px;
+	width: 310px;
+	border: solid;
+	border-width: 1px;
+	border-color: #FF0000;
+	font-weight: bold;
+}
+.error{
+	color: #FF0000;
+	margin-bottom: 10px;
+}

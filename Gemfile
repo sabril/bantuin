@@ -1,12 +1,13 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.0'
+gem 'rails', '3.2.1'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'pg'
 gem 'devise'
+gem 'rails-i18n'
 #gem 'twitter-bootstrap-rails', :git => 'http://github.com/seyhunak/twitter-bootstrap-rails.git'
 gem 'activeadmin', :git => 'git://github.com/gregbell/active_admin.git'
 gem "carrierwave"
@@ -18,6 +19,7 @@ gem "rails3-generators"
 gem "kaminari"
 gem "cancan"
 gem "simple_form"
+gem "memcache-client"
 
 # Gems used only for assets and not required
 # in production environments by default.

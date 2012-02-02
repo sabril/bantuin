@@ -39,7 +39,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :authentication_token
 
       t.boolean :premium, :default => false
-      t.integer :roles_mask
+      t.integer :roles_mask, :default => 2
       t.timestamps
     end
 

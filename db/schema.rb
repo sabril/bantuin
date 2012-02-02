@@ -66,6 +66,7 @@ ActiveRecord::Schema.define(:version => 20120131161623) do
     t.string   "unconfirmed_email"
     t.string   "authentication_token"
     t.boolean  "premium",                :default => false
+    t.integer  "roles_mask",             :default => 2
     t.datetime "created_at",                                :null => false
     t.datetime "updated_at",                                :null => false
   end

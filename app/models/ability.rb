@@ -7,7 +7,6 @@ class Ability
   end
   
   def provider
-    
   end
   
   def employer
