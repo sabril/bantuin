@@ -48,3 +48,16 @@ input.boolean{
 span.hint{
 	margin-left: 5px;
 }
+
+
+.image_tag a{
+	margin: 0px;
+	padding: 0px;
+	height: 20px;
+	width: 25px;
+}
+
+.image_tag img{
+	width: 25px;
+	height: 25px;
+}
