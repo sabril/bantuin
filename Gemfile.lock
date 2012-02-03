@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/gregbell/active_admin.git
-  revision: 81f96fe4458f82c471e8a81040b3c07edbcce26d
+  revision: eb0659554c27e89972e4fcc7ee9998a6a40a50dc
   specs:
     activeadmin (0.4.0)
       bourbon (>= 1.0.0)
@@ -15,10 +15,10 @@ GIT
       sass (>= 3.1.0)
 
 GIT
-  remote: git://github.com/metaskills/less-rails-bootstrap.git
-  revision: c686bd139bf3ada6962f751641be289e6a62c9e7
+  remote: git://github.com/sabril/less-rails-bootstrap.git
+  revision: e86fb09ff78bc344a20d4a02e7e8c27c574edc46
   specs:
-    less-rails-bootstrap (2.0.2)
+    less-rails-bootstrap (2.0.3)
       less-rails (~> 2.1.0)
 
 GEM
@@ -131,11 +131,10 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     memcache-client (1.8.5)
-    meta_search (1.1.2)
+    meta_search (1.1.3)
       actionpack (~> 3.1)
       activerecord (~> 3.1)
       activesupport (~> 3.1)
-      meta_search
       polyamorous (~> 0.5.0)
     mime-types (1.17.2)
     mini_magick (3.4)
@@ -221,10 +220,10 @@ GEM
     uglifier (1.2.3)
       execjs (>= 0.3.0)
       multi_json (>= 1.0.2)
-    unicorn (4.1.1)
-      kgio (~> 2.4)
+    unicorn (4.2.0)
+      kgio (~> 2.6)
       rack
-      raindrops (~> 0.6)
+      raindrops (~> 0.7)
     warden (1.1.0)
       rack (>= 1.0)
     webrat (0.7.3)
