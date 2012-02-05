@@ -7,6 +7,10 @@
 		</div>
 		<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
 	  		<%= f.error_notification %>
+	  		<div class="input">
+	  		  <%= label_tag "Pilih tujuan anda:"%>
+	  		  <%= select_tag "user[roles][]", options_for_select([['Saya ingin mencari pekerjaan', 'provider'], ['Saya ingin menawarkan pekerjaan', 'employer']]), :style => "width: 94%;" %>
+	  		</div>
 	    	<%= f.input :first_name,:input_html => { :class => "span11" }, :required => true, :autofocus => true %>
  		   	<%= f.input :last_name,:input_html => { :class => "span11" }, :required => true %>
  		   	<%= f.input :email,:input_html => { :class => "span11" }, :required => true %>

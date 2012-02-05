@@ -40,6 +40,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
 
       t.boolean :premium, :default => false
       t.integer :roles_mask, :default => 2
+      t.string :time_zone, :default => "Jakarta"
       t.timestamps
     end
 
