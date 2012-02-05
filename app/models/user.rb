@@ -29,7 +29,6 @@ class User < ActiveRecord::Base
   def recalculate_completeness
     self.completeness = 0
     self.completeness += 10 if self.avatar?
-    self.completeness += 10 if self.address.line_1
-    self.completeness += 10 if self.address.country
+    self.completeness += 10 if self.address
   end
 end
