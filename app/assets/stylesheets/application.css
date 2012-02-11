@@ -61,3 +61,19 @@ span.hint{
 	width: 25px;
 	height: 25px;
 }
+
+.delete_margin_left{
+	margin-left: 0px;
+}
+
+span.checkbox{
+	padding-left: 0px;
+}
+
+.check_boxes{
+	padding-left: 18px;
+}
+.collection_check_boxes{
+	margin-left: 5px;
+}
+

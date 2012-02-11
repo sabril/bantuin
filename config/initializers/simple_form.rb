@@ -1,6 +1,9 @@
 # Use this setup block to configure all options available in SimpleForm.
 SimpleForm.setup do |config|
-
+  config.wrappers :prepend,:tag => :div, :class => 'input-prepend' do |b|
+  b.use :placeholder
+  b.use :label_input
+  end
 
   # Components used by the form builder to generate a complete input. You can remove
   # any of them, change the order, or even add your own components to the stack.

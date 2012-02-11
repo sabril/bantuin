@@ -1,5 +1,9 @@
 Bantuin::Application.routes.draw do
+  mount Ckeditor::Engine => '/ckeditor'
 
+  resources :jobs
+  match '/search_jobs' => "jobs#index"
+  match '/create_job' => "jobs#new" 
   devise_for :users do
     get "/login" => "devise/sessions#new"
     get "/logout" => "devise/sessions#destroy"

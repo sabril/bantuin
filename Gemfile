@@ -18,9 +18,10 @@ gem "haml-rails"
 gem "rails3-generators"
 gem "kaminari"
 gem "cancan"
-gem "simple_form"
+gem "simple_form", :git => "https://github.com/plataformatec/simple_form.git"
 gem "memcache-client"
 gem 'country_select'
+gem "ckeditor", :git => "https://github.com/galetahub/ckeditor.git"
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
