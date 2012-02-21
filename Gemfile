@@ -22,6 +22,7 @@ gem "simple_form", :git => "https://github.com/plataformatec/simple_form.git"
 gem "memcache-client"
 gem 'country_select'
 gem "ckeditor", :git => "https://github.com/galetahub/ckeditor.git"
+gem "calendar_date_select"
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

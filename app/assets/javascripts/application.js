@@ -12,6 +12,36 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui
 //= require twitter/bootstrap
 //= require ckeditor/ckeditor
 
+$(document).ready(function(){
+	var defaultValue = 10000;
+	$("#salary").val(defaultValue);
+	$("#salary").keyup(function(){
+		var currentValue = parseInt($("#salary").val());
+		if(currentValue < 10000){
+			$('#error_count').text("minimal pembayaran Rp10.000");
+			$("#salary").val(10000);
+		}
+	});
+	$("#sal-up").click(function(){
+		var currentValue = parseInt($("#salary").val());
+		var newValue = currentValue + 1000;
+		$("#salary").val(newValue);
+	});
+	$("#sal-down").click(function(){
+		var currentValue = parseInt($("#salary").val());
+		var newValue = currentValue - 1000;
+		if(newValue < 10000){
+			$('#error_count').text("minimal pembayaran Rp10.000");
+		}
+		else{
+			$("#salary").val(newValue);
+		}
+	});
+	$(function() {
+		$( "#job_time_start" ).datepicker({ dateFormat: 'yy-mm-dd' });
+	});
+});

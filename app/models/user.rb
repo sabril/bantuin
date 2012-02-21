@@ -9,7 +9,8 @@ class User < ActiveRecord::Base
   mount_uploader :avatar, AvatarUploader
   before_save :recalculate_completeness
   has_one :address, :as => :addressable
-  
+  has_many :jobs
+  has_many :apps
   accepts_nested_attributes_for :address, :allow_destroy => true
   
   def roles=(roles)

@@ -1,13 +1,18 @@
 <div class="span3">
 	<div class="well sidebar-nav">
 		<ul class="nav nav-list">
-			<li class="nav-header">Sidebar</li>
-            <li><a href="<%= search_jobs_path %>"><i class="icon-search icon"></i> Search jobs</a></li>
-            <li><a href="<%= create_job_path %>"><i class="icon-pencil icon"></i> Create job</a></li>
-            <li><a href="#">Link</a></li>
-            <li><a href="#">Link</a></li>
+			<% if current_user %>
+				<li class="nav-header">DASHBOARD</li>
+            	<% if current_user.roles_mask == 1 %>
+            		<li><a href="<%= new_job_path %>"><i class="icon-pencil icon"></i> Create job</a></li>
+            		<li><a href="<%= view_jobs_jobs_path %>"><i class="icon-file icon"></i> View jobs</a></li>
+            	<% else %>
+            		<li><a href="<%= apps_path %>"><i class="icon-pencil icon"></i> Proposals job</a></li>
+            		<li><a href="<%= index_active_apps_path %>"><i class="icon-file icon"></i> Active jobs</a></li>
+            	<% end %>
+			<% end %>
             <li class="nav-header">Sidebar</li>
-            <li><a href="#">Link</a></li>
+            <li><a href="<%= jobs_path %>"><i class="icon-search icon"></i> Search jobs</a></li>
             <li><a href="#">Link</a></li>
             <li><a href="#">Link</a></li>
             <li><a href="#">Link</a></li>
