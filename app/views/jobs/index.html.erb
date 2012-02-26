@@ -1,0 +1,59 @@
+<div class="row-fluid">
+<%= render "link/menu_link" %>
+  <div class="span9">
+    <div class="row-fluid">
+    	<div class="span9">
+    		<div class="row-fluid">
+    			<div class="well">
+    			<div class="row-fluid">
+    				<%= simple_form_for(:search, :url => jobs_path, :html => { :class => 'form-horizontal' } ) do |f| %>
+	    			<div class="span8">
+	    				<%= f.input :name, :wrapper => :prepend, :label => false do %>
+	    				<%= content_tag :span, "Search jobs", :class => "add-on" %>
+	    				<%= f.input_field :name,:class => 'span9' %>
+	    			<% end %>
+	    			</div>
+	    			<div class="span2 delete_margin_left">
+	    				<%= f.submit "Search", :class => "btn-primary span12" %>
+	    			</div>
+    			<% end %>
+    			</div>
+    		</div>
+    		</div>
+    		<% @job.each do |f| %>
+	    		<div class="row-fluid margin_bottom">
+	    			<div class="align">
+	    				<div class="job_area">
+	    					<h3><%= link_to(f.title, f) %></h3>
+	    					<div class="exp">
+	    						<div class="area-city">
+	    							<%= f.area %>
+	    						</div>
+	    						<div class="area-salary">
+	    							- salary <%= number_to_currency(f.salary) %>
+	    						</div>
+	    					</div>
+	    					<div class="desc">
+	    							<%= raw f.description[0,150] %>...
+	    					</div>
+	    					<div class="keyword">
+	    						<b>Keyword : </b><%= f.keyword %>
+	    					</div>
+	    				</div>
+	    			</div>
+	    		</div>	
+    		<% end %>
+    	</div>
+    	<div class="span3">
+    		<div class="well">
+    			<h3>Filter Result</h3>
+    			<hr />
+    			<h6>Categories</h6>
+    			<%= simple_form_for(:filter_result, :url => jobs_path) do |f| %>
+    			<%= f.input :content_type, :collection => [:All,:Skill], :as => :check_boxes, :label => false %>
+    			<% end %>
+    		</div>
+    	</div>
+    </div>
+  </div>
+</div>

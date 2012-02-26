@@ -1,0 +1,63 @@
+<div class="row-fluid">
+<%= render "link/menu_link" %>
+  <div class="span9">
+    <div class="row-fluid">
+    	<div class="span8">
+    		<h2 class="head_title"><%= @job.title %></h2>
+    		<div class="exp">
+    			<div class="area-city">
+    				<%= @job.area %>
+    			</div>
+    			<div class="area-salary">
+    				- salary <%= number_to_currency(@job.salary) %>
+    		</div>
+    		<hr />
+    		<div class="desc">
+    			<h3>Jobs description</h3>
+    			<%= raw @job.description %>
+    		</div>
+    		<% if current_user.nil?%>
+    		silahkan <%= link_to "login", login_path %> untuk mengajukan proposal
+    		<% else %>
+    			<% if current_user.roles_mask == 2 %>
+    				<% if @app.nil? %>
+    					<%= link_to "kirim proposal", new_app_path(:job => @job.id) ,:class => "btn btn-primary btn-large editor_top" %>
+    				<% else %>
+    				<%= link_to "Proposal telah dikirim", '#' ,:class => "btn disabled btn-primary btn-large editor_top" %>
+    				<% end %>
+    			<% end %>
+    		<% end %>
+    		</div>
+    	</div>
+    	<div class="span4">
+    		<div class="well">
+    			<h3 class="head_title">Job overview</h3>
+    			<div class="row-fluid">
+    				<div class="span12 overview">
+    					<div class="overview_name">Salary : </div><div class="overview_info"><%= number_to_currency(@job.salary) %></div>
+    					<div class="overview_name">Posted : </div><div class="overview_info"><%= @job.created_at.strftime("%d %B %Y")%></div>
+    				</div>
+    			</div>
+    			<hr />
+    			<div class="row-fluid">
+    				<div class="span12 overview">
+    					<div class="overview_name">Status : </div><div class="overview_info active">active</div>
+    					<div class="overview_name">Category : </div><div class="overview_info">web programming</div>
+    				</div>
+    			</div>
+    		</div>
+    		<div class="well">
+    			<h3 class="head_title">About employeer</h3>
+    			<div class="row-fluid">
+    				<div class="span12 overview">
+    					<div class="overview_name">Name : </div><div class="overview_info"><%= @job.user.first_name %></div>
+    					<div class="overview_name">rating : </div><div class="overview_info"><%= render 'rating'%></div>
+    					
+    				</div>
+    			</div>
+    		</div>
+    		
+    	</div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+<div class="row-fluid">
+<%= render "link/menu_link" %>
+  <div class="span9">
+    <div class="row-fluid">
+    	<div class="span8">
+    		<div class="well">
+    			<h2>Daftar proposal</h2>
+    			<hr />
+    			<% if @app.empty?%>
+    			<p>maaf anda belum memasukan proposal apapun </p>
+    			<% else %>
+    			<% @app.each do |f|%>
+    				<div class="row-fluid">
+    					<div class="span12">
+    						<h3><%= link_to f.job.title, f %></h3>
+    					</div>
+    				</div>
+    			<% end %>
+    			<% end %>
+    		</div>
+    	</div>
+    	<div class="span4">
+    		<div class="well">
+    			<h3>Need help ??</h3>
+    			<p>read online guide <a href="#">here</a></p>
+    		</div>
+    	</div>
+    </div>
+  </div>
+</div>

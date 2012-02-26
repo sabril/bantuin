@@ -1,0 +1,68 @@
+<div class="row-fluid">
+<%= render "link/menu_link" %>
+  <div class="span9">
+    <div class="row-fluid">
+    	<div class="span12">
+    		<div class="well">
+    			<h2>Jobs sent</h2>
+    			<hr />
+    			<div class="row-fluid">
+	    					<div class="span5 hed">
+	    						Nama Pekerjaan
+	    					</div>
+	    					<div class="span3 hed">
+	    						Tanggal
+	    					</div>
+	    					<div class="span2 hed">
+	    						Status
+	    					</div>
+	    				</div>
+    			<% if @job.empty? %>
+    			<p>maaf anda belum memasukan pekerjaan apapun </p>
+    			<% else %>
+    					<% @job.each do |f| %>
+	    				<div class="row-fluid">
+	    					<div class="span5">
+	    						<%= link_to f.title, f %>
+	    					</div>
+	    					<div class="span3">
+	    						<%= f.created_at.strftime("%d %B %Y") %>
+	    					</div>
+	    					<div class="span2">
+	    						<%if f.status == 1 %>
+	    							<div class="active">active</div>	
+	    						<%elsif f.status == 2 %>
+	    							finished
+	    						<% else %>
+	    							<div class="deactive">not active</div>
+	    						<% end%>
+	    					</div>
+	    					<div class="span2 icon">
+	    						<%if f.status == 1 %>
+	    							<% f.apps.each do |n| %>
+	    								<% if n.status == 1 %>
+	    									<%= link_to(image_tag("icon/user_18.png",:title => "lihat applicant",:class =>'icon_tag'))%>
+	    									<%= link_to(image_tag("icon/mail_write_18.png",:title => "kirimkan pesan",:class =>'icon_tag'))%>
+	    									<% if n.finished == 1 %>
+	    										<%= link_to(image_tag("icon/flag_18.png",:title => "pekerjaan selesai",:class =>'icon_tag'),finished_job_path(f))%>
+	    										<%= link_to(image_tag("icon/warning_18.png",:title => "pekerjaan belum selesai",:class =>'icon_tag'))%>
+	    									<% else %>
+	    										<%= link_to(image_tag("icon/user_delete_18.png",:title => "pecat applicant",:class =>'icon_tag'))%>
+	    									<% end %>
+	    								<% end %>
+	    							<% end %>
+	    						<%elsif f.status == 2 %>
+	    							finished
+	    						<% else %>
+	    							<%= link_to(image_tag("icon/paper&pencil_18.png",:title => "edit",:class =>'icon_tag'), edit_job_path(f) )%>
+	    							<%= link_to(image_tag("icon/users_two_18.png",:title => "view applicant",:class =>'icon_tag'), view_apps_jobs_path(:job => f.id) )%>
+	    						<% end%>
+	    					</div>
+	    				</div>
+    				<% end %>	
+    			<% end %>
+    		</div>
+    	</div>
+    </div>
+  </div>
+</div>
