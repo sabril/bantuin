@@ -15,6 +15,7 @@ gem "mini_magick"
 gem 'jquery-rails'
 gem "faker"
 gem "haml-rails"
+gem 'ajaxful_rating', '>= 3.0.0.beta7'
 gem "rails3-generators"
 gem "kaminari"
 gem "cancan"

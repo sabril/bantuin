@@ -10,6 +10,7 @@
  *
  *= require twitter/bootstrap
  *= require bootstrap-responsive
+ * *= require ajaxful_rating
 */
 /* Override some defaults */
 
@@ -166,6 +167,12 @@ span.checkbox{
 	color: #10CC2F;
 	font-weight: bold;
 }
+
+.deactive{
+	color: #fd2222;
+	font-weight: bold;
+}
+
 .editor_top{
 	margin-top: 10px;
 }

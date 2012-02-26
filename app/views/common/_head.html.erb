@@ -5,9 +5,11 @@
 <!--[if lt IE 9]>
   <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
+
+<%= javascript_include_tag "application" %>
 <%= stylesheet_link_tag "application" %>
 <%= stylesheet_link_tag "start/jquery.ui.all" %>
-<%= javascript_include_tag "application" %>
+<%= ajaxful_rating_style %>
 <%= csrf_meta_tag %>
 <%= yield(:head) %>
 <!--<link rel="shortcut icon" href="images/favicon.ico">

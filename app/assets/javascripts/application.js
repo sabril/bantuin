@@ -15,6 +15,9 @@
 //= require jquery-ui
 //= require twitter/bootstrap
 //= require ckeditor/ckeditor
+$('a').live('ajax:complete', function(xhr, status) {
+  $(".ajaxful-rating-wrapper").replaceWith(status.responseText)
+});
 
 $(document).ready(function(){
 	var defaultValue = 10000;
@@ -44,4 +47,5 @@ $(document).ready(function(){
 	$(function() {
 		$( "#job_time_start" ).datepicker({ dateFormat: 'yy-mm-dd' });
 	});
+	
 });

@@ -9,6 +9,8 @@ Bantuin::Application.routes.draw do
   resources :jobs do 
     member do 
       get "actived"
+      get "finished"
+      post "rate"
     end
     collection do
       get "view_jobs"
@@ -16,10 +18,16 @@ Bantuin::Application.routes.draw do
     end
   end 
   resources :apps do
+    member do 
+      get "finished"
+      post "rate"
+    end
     collection do
       get "index_active"
     end
   end
+  
+  resources :users, :member => {:rate => :post}
   devise_for :users do
     get "/login" => "devise/sessions#new"
     get "/logout" => "devise/sessions#destroy"
