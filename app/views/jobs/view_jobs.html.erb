@@ -30,11 +30,11 @@
 	    					</div>
 	    					<div class="span2">
 	    						<%if f.status == 1 %>
-	    							<div class="active">active</div>	
+	    							<div class="prog">on progress</div>
 	    						<%elsif f.status == 2 %>
-	    							finished
+	    							<div class="deactive">finished</div>
 	    						<% else %>
-	    							<div class="deactive">not active</div>
+	    							<div class="active">active</div>	
 	    						<% end%>
 	    					</div>
 	    					<div class="span2 icon">
@@ -45,17 +45,18 @@
 	    									<%= link_to(image_tag("icon/mail_write_18.png",:title => "kirimkan pesan",:class =>'icon_tag'))%>
 	    									<% if n.finished == 1 %>
 	    										<%= link_to(image_tag("icon/flag_18.png",:title => "pekerjaan selesai",:class =>'icon_tag'),finished_job_path(f))%>
-	    										<%= link_to(image_tag("icon/warning_18.png",:title => "pekerjaan belum selesai",:class =>'icon_tag'))%>
+	    										<%= link_to(image_tag("icon/warning_18.png",:title => "pekerjaan belum selesai",:class =>'icon_tag'),'#')%>
 	    									<% else %>
-	    										<%= link_to(image_tag("icon/user_delete_18.png",:title => "pecat applicant",:class =>'icon_tag'))%>
+	    										<%= link_to(image_tag("icon/user_delete_18.png",:title => "pecat applicant",:class =>'icon_tag'),fired_job_path(f),:confirm => "are you sure ?")%>
 	    									<% end %>
 	    								<% end %>
 	    							<% end %>
 	    						<%elsif f.status == 2 %>
-	    							finished
+	    							<%= link_to(image_tag("icon/user_18.png",:title => "lihat applicant",:class =>'icon_tag'))%>
 	    						<% else %>
 	    							<%= link_to(image_tag("icon/paper&pencil_18.png",:title => "edit",:class =>'icon_tag'), edit_job_path(f) )%>
 	    							<%= link_to(image_tag("icon/users_two_18.png",:title => "view applicant",:class =>'icon_tag'), view_apps_jobs_path(:job => f.id) )%>
+	    							<%= link_to(image_tag("icon/cancel_18.png",:title => "delete pekerjaan",:class =>'icon_tag'),f,:method => :delete,:confirm => "are you sure ?")%>
 	    						<% end%>
 	    					</div>
 	    				</div>

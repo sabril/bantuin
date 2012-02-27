@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   ajaxful_rater
+  ajaxful_rateable :stars => 5, :dimensions => [:rating],:allow_update => true
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,

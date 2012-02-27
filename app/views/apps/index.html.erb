@@ -6,16 +6,30 @@
     		<div class="well">
     			<h2>Daftar proposal</h2>
     			<hr />
+    			<div class="row-fluid">
+	    			<div class="span5 hed">
+	    				Nama Pekerjaan
+	    			</div>
+	    			<div class="span4 hed">
+	    				Tanggal
+	    			</div>
+	    		</div>
     			<% if @app.empty?%>
-    			<p>maaf anda belum memasukan proposal apapun </p>
+    			<p>maaf belum ada pekerjaan yang terselesaikan </p>
     			<% else %>
     			<% @app.each do |f|%>
     				<div class="row-fluid">
-    					<div class="span12">
-    						<h3><%= link_to f.job.title, f %></h3>
-    					</div>
-    				</div>
-    			<% end %>
+	    					<div class="span5">
+	    						<%= link_to(f.job.title, job_path(f)) %>
+	    					</div>
+	    					<div class="span4">
+	    						<%= f.created_at.strftime("%d %B %Y") %>
+	    					</div>
+	    					<div class="span3 icon">
+	    						<%= link_to(image_tag('icon/user_18.png',:class => 'icon_tag',:title => 'lihat profil kontraktor'),'#') %>
+	    					</div>
+	    				</div>
+    				<% end %>
     			<% end %>
     		</div>
     	</div>

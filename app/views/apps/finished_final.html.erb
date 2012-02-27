@@ -6,7 +6,7 @@
     		<div class="well">
     			<h2>Feedback</h2>
     			<hr />
-    			<%= simple_form_for @app, :url => feedback_job_path do |f|%>
+    			<%= simple_form_for @job, :url => feedback_app_path do |f|%>
     				<%= f.label :rating_pekerjaan %>
     				<%= render 'rating' %>
     				<%= f.label :komentar, :class => "editor_top"%>

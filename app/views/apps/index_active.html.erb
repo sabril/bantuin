@@ -5,6 +5,7 @@
     	<div class="span8">
     		<div class="well">
     			<h2>Daftar kerjaan</h2>
+    			<hr />
     			<div class="row-fluid">
 	    			<div class="span5 hed">
 	    				Nama Pekerjaan
@@ -29,8 +30,10 @@
 	    						<%= link_to(image_tag('icon/mail_write_18.png',:class => 'icon_tag',:title => 'kirim pesan ke kontraktor'),'#') %>
 	    						<% if f.finished == 1 %>
 	    							<%= link_to(image_tag('icon/warning_18.png',:class => 'icon_tag',:title => 'tunggu konfirmasi dari kontraktor'),'#') %>
+	    						<% elsif f.finished == 2 %>
+	    							<%= link_to(image_tag('icon/rss_18.png',:class => 'icon_tag',:title => 'pekerjaan telah selesai, silahkan mengisi feedback'),finished_final_app_path(f.job)) %>
 	    						<% else %>
-	    							<%= link_to(image_tag('icon/flag_18.png',:class => 'icon_tag',:title => 'pekerjaan telah selesai'),finished_app_path(f)) %>
+	    							<%= link_to(image_tag('icon/flag_18.png',:class => 'icon_tag',:title => 'pekerjaan telah selesai'),finished_app_path(f),:confirm => "are you sure?") %>
 	    						<% end %>
 	    					</div>
 	    				</div>

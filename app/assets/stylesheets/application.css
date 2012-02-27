@@ -173,6 +173,10 @@ span.checkbox{
 	font-weight: bold;
 }
 
+.prog{
+	color: #e58632;
+	font-weight: bold;
+}
 .editor_top{
 	margin-top: 10px;
 }
@@ -198,4 +202,19 @@ span.checkbox{
 
 .bottom{
 	margin-bottom: 5px;
+}
+
+.cover_head{
+	margin-bottom: 5px;
+}
+.cover_head_name{
+	float: left;
+	width: 25%;
+	height: 20px;
+}
+
+.cover_head_info{
+	float: left;
+	width: 75%;
+	height: 20px;
 }

@@ -6,7 +6,7 @@
     		<div class="well">
     			<h2>Send Application</h2>
     			<hr />
-    			<%= simple_form_for(@app ) do |f| %>
+    			<%= simple_form_for @app do |f| %>
     			<%= f.label :pengajuan_gaji %>
     			<%= f.input :salary, :wrapper => :prepend, :label => false do %>
 	    			<%= content_tag :span, "Rp", :class => "add-on" %>

@@ -19,11 +19,13 @@
     		<% if current_user.nil?%>
     		silahkan <%= link_to "login", login_path %> untuk mengajukan proposal
     		<% else %>
-    			<% if current_user.roles_mask == 2 %>
-    				<% if @app.nil? %>
-    					<%= link_to "kirim proposal", new_app_path(:job => @job.id) ,:class => "btn btn-primary btn-large editor_top" %>
-    				<% else %>
-    				<%= link_to "Proposal telah dikirim", '#' ,:class => "btn disabled btn-primary btn-large editor_top" %>
+    			<% if @job.status == nil %>
+    				<% if current_user.roles_mask == 2 %>
+	    				<% if @app.nil? %>
+	    					<%= link_to "kirim proposal", new_app_path(:job => @job.id) ,:class => "btn btn-primary btn-large editor_top" %>
+	    				<% else %>
+	    				<%= link_to "Proposal telah dikirim", '#' ,:class => "btn disabled btn-primary btn-large editor_top" %>
+	    				<% end %>
     				<% end %>
     			<% end %>
     		<% end %>
@@ -41,7 +43,14 @@
     			<hr />
     			<div class="row-fluid">
     				<div class="span12 overview">
-    					<div class="overview_name">Status : </div><div class="overview_info active">active</div>
+    					<div class="overview_name">Status : </div>
+    					<% if @job.status == 1 %>
+    						<div class="overview_info active">on progress</div>
+    					<% elsif @job.status == 2 %>
+    						<div class="overview_info deactive">Finished</div>
+    					<% else %>
+    						<div class="overview_info active">active</div>
+    					<% end %>
     					<div class="overview_name">Category : </div><div class="overview_info">web programming</div>
     				</div>
     			</div>
@@ -51,8 +60,7 @@
     			<div class="row-fluid">
     				<div class="span12 overview">
     					<div class="overview_name">Name : </div><div class="overview_info"><%= @job.user.first_name %></div>
-    					<div class="overview_name">rating : </div><div class="overview_info"><%= render 'rating'%></div>
-    					
+    					<div class="overview_name">rating : </div><div class="overview_info"><%= ratings_for @job.user, :static %></div>	
     				</div>
     			</div>
     		</div>

@@ -11,13 +11,23 @@
     		<% @app.each do |f| %>
     			<div class="well">
     				<div class="row-fluid bottom">
-    					<div class="span10">
-    						<b>Nama pelamar : </b><%= link_to(f.user.first_name, f ) %> <br />
-    						<b>Reputasi : </b>
+    					<div class="span10 cover_head">
+    						<div class="cover_head_name">
+    							<b>Nama pelamar : </b>
+    						</div>
+    						<div class="cover_head_info">
+    							<%= link_to(f.user.first_name, f ) %>
+    						</div>
+    						<div class="cover_head_name">
+    							<b>Reputasi : </b>
+    						</div>
+    						<div class="cover_head_info">
+    							<%= ratings_for f.user, :static %>
+    						</div>
     					</div>
     					<div class="span2 icon">
     						<%= link_to(image_tag("icon/mail_write_18.png",:title => "send message",:class =>'icon_tag'),'#')%>
-    						<%= link_to(image_tag("icon/thumbs_up_18.png",:title => "terima sebagai pekerja",:class =>'icon_tag'),actived_job_path(f))%>
+    						<%= link_to(image_tag("icon/thumbs_up_18.png",:title => "terima sebagai pekerja",:class =>'icon_tag'),actived_job_path(f),:confirm => "are you sure?")%>
     					</div>
     				</div>
     				<div class="apps_letter">
