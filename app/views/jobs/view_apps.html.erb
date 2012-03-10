@@ -26,7 +26,7 @@
     						</div>
     					</div>
     					<div class="span2 icon">
-    						<%= link_to(image_tag("icon/mail_write_18.png",:title => "send message",:class =>'icon_tag'),'#')%>
+    						<%= link_to(image_tag("icon/mail_write_18.png",:title => "send message",:class =>'icon_tag'),messages_new_path(:user => f.user))%>
     						<%= link_to(image_tag("icon/thumbs_up_18.png",:title => "terima sebagai pekerja",:class =>'icon_tag'),actived_job_path(f),:confirm => "are you sure?")%>
     					</div>
     				</div>

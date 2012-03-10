@@ -1,11 +1,12 @@
 Bantuin::Application.routes.draw do
-  get "apps/index"
-
-  get "apps/new"
-
-  get "apps/edit"
 
   mount Ckeditor::Engine => '/ckeditor'
+  
+  resources :messages do
+    collection do
+      get "index_outbox"
+    end
+  end
   resources :jobs do 
     member do 
       get "actived"
@@ -39,11 +40,11 @@ Bantuin::Application.routes.draw do
   end
   
   devise_for :users do
-    get "/login" => "devise/sessions#new"
-    get "/logout" => "devise/sessions#destroy"
-    get "/user_profile" => "devise/registrations#edit"
+    get "login" => "devise/sessions#new"
+    get "logout" => "devise/sessions#destroy"
+    get "user_profile" => "devise/registrations#edit"
   end
-
+  
   get "home/index"
 
   ActiveAdmin.routes(self)

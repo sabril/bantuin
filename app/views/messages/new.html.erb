@@ -1,0 +1,22 @@
+<div class="row-fluid">
+<%= render "link/menu_link" %>
+  <div class="span9">
+    <div class="row-fluid">
+      <div class="span8">
+        <div class="well">
+        	<h2>Tulis pesan</h2>
+        	<hr />
+        	<%= simple_form_for @message do |f| %>
+        	<%= f.label :subjek %>
+        	<%= f.input_field :subject,:class => "span8", :value => ('reply[subject : '+@message_reply+']' if @message_reply != nil) %>
+        	<%= f.label :pesan %>
+        	<%= f.cktext_area :body, :toolbar => 'Basic' %>
+        	<%= f.input :sender_id, :as => :hidden, :input_html => {:value => current_user.id}%>
+        	<%= f.input :recipient_id, :as => :hidden, :input_html => {:value => @user.id }%>
+        	<%= f.submit "Kirim pesan", :class => "btn-primary btn-large editor_top"%>
+        	<% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

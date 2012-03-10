@@ -7,6 +7,7 @@ class CreateApps < ActiveRecord::Migration
       t.integer :status
       t.integer :finished
       t.text :cover_letter
+      t.text :comment
 
       t.timestamps
     end

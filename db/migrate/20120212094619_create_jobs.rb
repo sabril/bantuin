@@ -10,6 +10,7 @@ class CreateJobs < ActiveRecord::Migration
       t.string :salary
       t.integer :status
       t.string :keyword
+      t.text :comment
 
       t.timestamps
     end

@@ -1,0 +1,45 @@
+<div class="row-fluid">
+<%= render "link/menu_link" %>
+  <div class="span9">
+    <div class="row-fluid">
+      <div class="span12">
+      	<div class="well">
+      		<h2>Message</h2>
+      	</div>
+      	<ul class="nav nav-tabs">
+    		<li>
+    			<a href="<%= messages_path %>">Inbox</a>
+    		</li>
+    		<li><a href="<%= index_outbox_messages_path %>">Outbox</a></li>
+    		<li class="active"><a href="#">Read Message</a></li>
+    	</ul>
+    	<div class="row-fluid cover_head">
+    		<div class="cover_head_info back_message">
+    			Dari : <%= User.find(@message.sender_id).first_name %>
+    		</div>
+    	</div>
+			<div class="row-fluid cover_head">
+	    		<div class="cover_head_info back_message">
+	    			Kepada : <%= User.find(@message.recipient_id).first_name %>
+	    		</div>
+	    	</div>
+    	<div class="row-fluid cover_head">
+    		<div class="cover_head_info">
+    			Tanggal : <%= @message.created_at.strftime("%d %B %Y") %>
+    		</div>
+    	</div>
+    	<div class="row-fluid cover_head">
+    		<div class="cover_head_info">
+    			Subjek : <b><%= @message.subject %></b>
+    		</div>
+    	</div>
+    	<div class="row-fluid">
+    		<h3>Pesan</h3>
+    		<hr />
+    		<%= raw @message.body %>
+    		<%= link_to "balas pesan",new_message_path(:user => @message.sender_id,:reply => @message.id),:class => "btn btn-primary editor_top" %>
+    	</div>
+      </div>
+    </div>
+  </div>
+</div>

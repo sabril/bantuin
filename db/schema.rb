@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120223181345) do
+ActiveRecord::Schema.define(:version => 20120227165656) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -71,7 +71,8 @@ ActiveRecord::Schema.define(:version => 20120223181345) do
     t.text     "cover_letter"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
-    t.integer  "finished",     :null => false
+    t.integer  "finished"
+    t.text     "comment"
   end
 
   create_table "ckeditor_assets", :force => true do |t|
@@ -100,12 +101,25 @@ ActiveRecord::Schema.define(:version => 20120223181345) do
     t.string   "keyword"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.text     "comment"
   end
 
   create_table "locations", :force => true do |t|
     t.string   "locate"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "messages", :force => true do |t|
+    t.integer  "sender_id"
+    t.integer  "recipient_id"
+    t.boolean  "sender_deleted",    :default => false
+    t.boolean  "recipient_deleted", :default => false
+    t.string   "subject"
+    t.text     "body"
+    t.datetime "read_at"
+    t.datetime "created_at",                           :null => false
+    t.datetime "updated_at",                           :null => false
   end
 
   create_table "rates", :force => true do |t|

@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  has_private_messages
   ajaxful_rater
   ajaxful_rateable :stars => 5, :dimensions => [:rating],:allow_update => true
   # Include default devise modules. Others available are:
@@ -13,6 +14,7 @@ class User < ActiveRecord::Base
   has_one :address, :as => :addressable
   has_many :jobs
   has_many :apps
+  has_many :messages
   accepts_nested_attributes_for :address, :allow_destroy => true
   
   def roles=(roles)
