@@ -12,6 +12,7 @@ gem 'rails-i18n'
 gem 'activeadmin', :git => 'git://github.com/gregbell/active_admin.git'
 gem "carrierwave"
 gem "mini_magick"
+gem 'simple-private-messages', '0.0.0', :git => 'git://github.com/jongilbraith/simple-private-messages.git'
 gem 'jquery-rails'
 gem "faker"
 gem "haml-rails"

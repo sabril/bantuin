@@ -14,7 +14,7 @@
 //= require jquery_ujs
 //= require jquery-ui
 //= require twitter/bootstrap
-//= require ckeditor/ckeditor
+//= require ckeditor/init
 $('a').live('ajax:complete', function(xhr, status) {
   $(".ajaxful-rating-wrapper").replaceWith(status.responseText)
 });
