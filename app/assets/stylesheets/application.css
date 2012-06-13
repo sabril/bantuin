@@ -10,6 +10,8 @@
  *
  *= require twitter/bootstrap
  *= require bootstrap-responsive
+ * *= require ajaxful_rating
+ *= require start/jquery.ui.all
 */
 /* Override some defaults */
 
@@ -61,3 +63,160 @@ span.hint{
 	width: 25px;
 	height: 25px;
 }
+
+.delete_margin_left{
+	margin-left: 0px;
+}
+
+span.checkbox{
+	padding-left: 0px;
+}
+
+.check_boxes{
+	padding-left: 18px;
+}
+.collection_check_boxes{
+	margin-left: 5px;
+}
+
+.align-salary{
+	text-align: right;
+}
+
+#sal-up, #sal-down{
+	cursor: pointer;
+}
+
+#error_count{
+	color: red;
+}
+
+.job_area{
+	padding: 10px;
+	float: left;
+}
+
+.align{
+	
+}
+
+.align:hover{
+	
+}
+
+.exp{
+	float: left;
+	width: 100%;
+}
+
+.desc{
+	float: left;
+	width: 100%;
+}
+
+.keyword{
+	float: left;
+	width: 100%;
+}
+.margin_bottom{
+	margin-bottom: 10px;
+	border: solid 1px transparent;
+	clear: both;
+}
+
+.margin_bottom:hover{
+	border: solid 1px #7CBADB;
+	background-color: #ECF3F9;
+}
+
+.area-city{
+	color: red;
+	font-weight: bold;
+	margin-right: 5px;
+	float: left;
+}
+
+.area-salary{
+	float: left;
+	
+	color: #9D9D9D;
+}
+
+.head_title{
+	color: #7CBADB;
+}
+
+.overview{
+	padding: 5px;
+}
+
+.overview_info{
+	width: 70%;
+	float: left;
+	margin-bottom: 3px;
+}
+
+.overview_name{
+	width: 30%;
+	float: left;
+	font-weight: bold;
+	color: #532929;
+	margin-bottom: 3px;
+}
+
+.active{
+	color: #10CC2F;
+	font-weight: bold;
+}
+
+.deactive{
+	color: #fd2222;
+	font-weight: bold;
+}
+
+.prog{
+	color: #e58632;
+	font-weight: bold;
+}
+.editor_top{
+	margin-top: 10px;
+}
+
+.salary_app{
+	color: red;
+	margin-bottom: 10px;
+	font-weight: bold;
+}
+
+
+.hed{
+	font-weight: bold;
+}
+
+.icon{
+	text-align: right;
+}
+
+.icon_tag{
+	margin-left: 5px;
+}
+
+.bottom{
+	margin-bottom: 5px;
+}
+
+.cover_head{
+	margin-bottom: 5px;
+}
+.cover_head_name{
+	float: left;
+	width: 25%;
+	height: 20px;
+}
+
+.cover_head_info{
+	float: left;
+	width: 75%;
+	height: 20px;
+}
+

@@ -1,11 +1,50 @@
 Bantuin::Application.routes.draw do
 
-  devise_for :users do
-    get "/login" => "devise/sessions#new"
-    get "/logout" => "devise/sessions#destroy"
-    get "/user_profile" => "devise/registrations#edit"
+  mount Ckeditor::Engine => '/ckeditor'
+  
+  resources :messages do
+    collection do
+      get "index_outbox"
+    end
   end
-
+  resources :jobs do 
+    member do 
+      get "actived"
+      get "finished"
+      post "rate"
+      put "feedback"
+      get "fired"
+    end
+    collection do
+      get "view_jobs"
+      get "view_apps"
+    end
+  end 
+  resources :apps do
+    member do 
+      get "finished"
+      get "finished_final"
+      post "rate"
+      put "feedback"
+    end
+    collection do
+      get "index_active"
+      get "index_finished"
+    end
+  end
+  
+  resources :users do
+    member do
+      post "rate"
+    end
+  end
+  
+  devise_for :users do
+    get "login" => "devise/sessions#new"
+    get "logout" => "devise/sessions#destroy"
+    get "user_profile" => "devise/registrations#edit"
+  end
+  
   get "home/index"
 
   ActiveAdmin.routes(self)

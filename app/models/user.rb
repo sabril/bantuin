@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+  has_private_messages
+  ajaxful_rater
+  ajaxful_rateable :stars => 5, :dimensions => [:rating],:allow_update => true
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -9,7 +12,9 @@ class User < ActiveRecord::Base
   mount_uploader :avatar, AvatarUploader
   before_save :recalculate_completeness
   has_one :address, :as => :addressable
-  
+  has_many :jobs
+  has_many :apps
+  has_many :messages
   accepts_nested_attributes_for :address, :allow_destroy => true
   
   def roles=(roles)

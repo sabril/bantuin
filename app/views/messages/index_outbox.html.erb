@@ -1,0 +1,48 @@
+<div class="row-fluid">
+<%= render "link/menu_link" %>
+  <div class="span9">
+    <div class="row-fluid">
+      <div class="span12">
+      	<div class="well">
+      		<h2>Message</h2>
+      	</div>
+      	<ul class="nav nav-tabs">
+    		<li>
+    			<a href="<%= messages_path %>">Inbox</a>
+    		</li>
+    		<li class="active">
+				<a href="<%= index_outbox_messages_path %>">Outbox</a>
+			</li>
+    	</ul>
+    	<div class="row-fluid message">
+    		<div class="span3 hed">
+    			Penerima
+    		</div>
+    		<div class="span3 hed">
+    			subject
+    		</div>
+    		<div class="span3 hed">
+    			Date received
+    		</div>
+    	</div>
+    	<% @message.each do |f|%>
+    		<div class="row-fluid message">
+    			<div class="span3">
+    				<%= link_to(User.find(f.recipient_id).first_name,message_path(f)) %>
+    			</div>
+    			<div class="span3">
+    				<%= f.subject[0..50] %>
+    			</div>
+    			<div class="span3">
+    				<% if (Time.now == f.created_at )%>
+    					Today
+    				<% else %>
+    					<%= f.created_at.strftime("%d %B %Y")%>
+    				<% end %>
+    			</div>
+    		</div>
+    	<% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,47 @@
+<div class="row-fluid">
+<%= render "link/menu_link" %>
+  <div class="span9">
+    <div class="row-fluid">
+    	<div class="span8">
+    		<div class="well">
+    			<h2>Send Application</h2>
+    			<hr />
+    			<%= simple_form_for @app do |f| %>
+    			<%= f.label :pengajuan_gaji %>
+    			<%= f.input :salary, :wrapper => :prepend, :label => false do %>
+	    			<%= content_tag :span, "Rp", :class => "add-on" %>
+	    			<%= f.input_field :salary,:id => "salary",:value => "10000", :class => "align-salary"%>
+	    			<i id="sal-up" class="icon-plus-sign"></i>&nbsp;<i id="sal-down" class="icon-minus-sign"></i>
+	    			<div id="error_count"></div>
+	    		<% end %>
+	    		<%= f.label :surat_lamaran %>
+	    		<%= f.cktext_area :cover_letter,:toolbar => 'Basic' %>
+	    		<%= f.input :user_id, :as => :hidden, :input_html => {:value => current_user.id}%>
+	    		<%= f.input :job_id, :as => :hidden, :input_html => {:value => @job.id }%>
+	    		<%= f.submit "Masukkan lamaran", :class => "btn-primary btn-large editor_top" %>
+    			<% end %>
+    		</div>
+    		
+    	</div>
+    	<div class="span4">
+    		<div class="well">
+    			<h3 class="head_title">Job overview</h3>
+    			<div class="row-fluid">
+    				<div class="span12 overview">
+    					<div class="overview_name">Job name : </div><div class="overview_info"><%= link_to @job.title ,@job %></div>
+    					<div class="overview_name">Salary : </div><div class="overview_info"><%= number_to_currency(@job.salary) %></div>
+    					<div class="overview_name">Posted : </div><div class="overview_info"><%= @job.created_at.strftime("%d %B %Y")%></div>
+    				</div>
+    			</div>
+    			<hr />
+    			<div class="row-fluid">
+    				<div class="span12 overview">
+    					<div class="overview_name">Status : </div><div class="overview_info active">active</div>
+    					<div class="overview_name">Category : </div><div class="overview_info">web programming</div>
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+  </div>
+</div>

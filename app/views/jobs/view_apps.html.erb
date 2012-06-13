@@ -1,0 +1,62 @@
+<div class="row-fluid">
+<%= render "link/menu_link" %>
+  <div class="span9">
+    <div class="row-fluid">
+    	<div class="span8">
+    		<% if @app.empty? %>
+    		<div class="well">
+    			maaf tidak ada pelamar
+    		</div>
+    		<% else %>
+    		<% @app.each do |f| %>
+    			<div class="well">
+    				<div class="row-fluid bottom">
+    					<div class="span10 cover_head">
+    						<div class="cover_head_name">
+    							<b>Nama pelamar : </b>
+    						</div>
+    						<div class="cover_head_info">
+    							<%= link_to(f.user.first_name, f ) %>
+    						</div>
+    						<div class="cover_head_name">
+    							<b>Reputasi : </b>
+    						</div>
+    						<div class="cover_head_info">
+    							<%= ratings_for f.user, :static %>
+    						</div>
+    					</div>
+    					<div class="span2 icon">
+    						<%= link_to(image_tag("icon/mail_write_18.png",:title => "send message",:class =>'icon_tag'),messages_new_path(:user => f.user))%>
+    						<%= link_to(image_tag("icon/thumbs_up_18.png",:title => "terima sebagai pekerja",:class =>'icon_tag'),actived_job_path(f),:confirm => "are you sure?")%>
+    					</div>
+    				</div>
+    				<div class="apps_letter">
+    					<h4>surat lamaran</h4>
+    					<%= raw f.cover_letter %>
+    				</div>
+    			</div>
+    		<% end %>
+    		<% end %>
+    	</div>
+    	<div class="span4">
+    		<div class="well">
+    			<h3 class="head_title">Job overview</h3>
+    			<div class="row-fluid">
+    				<div class="span12 overview">
+    					<div class="overview_name">Job name : </div><div class="overview_info"><%= link_to @job.title ,@job %></div>
+    					<div class="overview_name">Salary : </div><div class="overview_info"><%= number_to_currency(@job.salary) %></div>
+    					<div class="overview_name">Posted : </div><div class="overview_info"><%= @job.created_at.strftime("%d %B %Y")%></div>
+    				</div>
+    			</div>
+    			<hr />
+    			<div class="row-fluid">
+    				<div class="span12 overview">
+    					<div class="overview_name">Status : </div><div class="overview_info active">active</div>
+    					<div class="overview_name">Category : </div><div class="overview_info">web programming</div>
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+  </div>
+</div>

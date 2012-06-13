@@ -1,0 +1,20 @@
+<div class="row-fluid">
+<%= render "link/menu_link" %>
+  <div class="span9">
+    <div class="row-fluid">
+    	<div class="span12">
+    		<div class="well">
+    			<h2>Feedback</h2>
+    			<hr />
+    			<%= simple_form_for @job, :url => feedback_app_path do |f|%>
+    				<%= f.label :rating_pekerjaan %>
+    				<%= render 'rating' %>
+    				<%= f.label :komentar, :class => "editor_top"%>
+    				<%= f.cktext_area :comment, :toolbar => 'Basic' %>
+    				<%= f.submit "Submit feedback", :class => "btn-primary btn-large editor_top"%>
+    			<% end %>
+    		</div>
+    	</div>
+    </div>
+  </div>
+</div>

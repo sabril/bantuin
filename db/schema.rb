@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120205155024) do
+ActiveRecord::Schema.define(:version => 20120227165656) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -62,6 +62,78 @@ ActiveRecord::Schema.define(:version => 20120205155024) do
 
   add_index "admin_users", ["email"], :name => "index_admin_users_on_email", :unique => true
   add_index "admin_users", ["reset_password_token"], :name => "index_admin_users_on_reset_password_token", :unique => true
+
+  create_table "apps", :force => true do |t|
+    t.integer  "job_id"
+    t.integer  "user_id"
+    t.string   "salary"
+    t.integer  "status"
+    t.text     "cover_letter"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.integer  "finished"
+    t.text     "comment"
+  end
+
+  create_table "ckeditor_assets", :force => true do |t|
+    t.string   "data_file_name",                  :null => false
+    t.string   "data_content_type"
+    t.integer  "data_file_size"
+    t.integer  "assetable_id"
+    t.string   "assetable_type",    :limit => 30
+    t.string   "type",              :limit => 30
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
+  end
+
+  add_index "ckeditor_assets", ["assetable_type", "assetable_id"], :name => "idx_ckeditor_assetable"
+  add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], :name => "idx_ckeditor_assetable_type"
+
+  create_table "jobs", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "title"
+    t.text     "description"
+    t.string   "time_start"
+    t.string   "area"
+    t.string   "categori"
+    t.string   "salary"
+    t.integer  "status"
+    t.string   "keyword"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.text     "comment"
+  end
+
+  create_table "locations", :force => true do |t|
+    t.string   "locate"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "messages", :force => true do |t|
+    t.integer  "sender_id"
+    t.integer  "recipient_id"
+    t.boolean  "sender_deleted",    :default => false
+    t.boolean  "recipient_deleted", :default => false
+    t.string   "subject"
+    t.text     "body"
+    t.datetime "read_at"
+    t.datetime "created_at",                           :null => false
+    t.datetime "updated_at",                           :null => false
+  end
+
+  create_table "rates", :force => true do |t|
+    t.integer  "rater_id"
+    t.integer  "rateable_id"
+    t.string   "rateable_type"
+    t.integer  "stars",         :null => false
+    t.string   "dimension"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "rates", ["rateable_id", "rateable_type"], :name => "index_rates_on_rateable_id_and_rateable_type"
+  add_index "rates", ["rater_id"], :name => "index_rates_on_rater_id"
 
   create_table "users", :force => true do |t|
     t.string   "first_name"

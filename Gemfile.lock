@@ -15,11 +15,33 @@ GIT
       sass (>= 3.1.0)
 
 GIT
+  remote: git://github.com/jongilbraith/simple-private-messages.git
+  revision: adf783407d924d3d94f33ec50912c65f8cdf5770
+  specs:
+    simple-private-messages (0.0.0)
+
+GIT
   remote: git://github.com/sabril/less-rails-bootstrap.git
   revision: e86fb09ff78bc344a20d4a02e7e8c27c574edc46
   specs:
     less-rails-bootstrap (2.0.3)
       less-rails (~> 2.1.0)
+
+GIT
+  remote: https://github.com/galetahub/ckeditor.git
+  revision: 1824cb49f10e6bcdb9b7bcb4396c3159c80e3448
+  specs:
+    ckeditor (3.7.1)
+      mime-types
+      orm_adapter
+
+GIT
+  remote: https://github.com/plataformatec/simple_form.git
+  revision: f1b152d1aadb9d0318487f0bfec5f1d2ddb84b54
+  specs:
+    simple_form (2.0.2)
+      actionpack (~> 3.0)
+      activemodel (~> 3.0)
 
 GEM
   remote: https://rubygems.org/
@@ -52,11 +74,13 @@ GEM
       i18n (~> 0.6)
       multi_json (~> 1.0)
     addressable (2.2.8)
+    ajaxful_rating (3.0.0.beta8)
     arel (3.0.2)
     bcrypt-ruby (3.0.1)
     bourbon (2.1.0)
       sass (>= 3.1)
     builder (3.0.0)
+    calendar_date_select (1.16.4)
     cancan (1.6.7)
     capybara (1.1.2)
       mime-types (>= 1.16)
@@ -209,9 +233,6 @@ GEM
       libwebsocket (~> 0.1.3)
       multi_json (~> 1.0)
       rubyzip
-    simple_form (2.0.2)
-      actionpack (~> 3.0)
-      activemodel (~> 3.0)
     sprockets (2.1.3)
       hike (~> 1.2)
       rack (~> 1.0)
@@ -234,10 +255,6 @@ GEM
       raindrops (~> 0.7)
     warden (1.1.1)
       rack (>= 1.0)
-    webrat (0.7.3)
-      nokogiri (>= 1.2.0)
-      rack (>= 1.0)
-      rack-test (>= 0.5.3)
     xpath (0.1.4)
       nokogiri (~> 1.3)
 
@@ -246,9 +263,12 @@ PLATFORMS
 
 DEPENDENCIES
   activeadmin!
+  ajaxful_rating (>= 3.0.0.beta7)
+  calendar_date_select
   cancan
   capybara
   carrierwave
+  ckeditor!
   coffee-rails (~> 3.2.1)
   country_select
   devise
@@ -267,7 +287,7 @@ DEPENDENCIES
   rails3-generators
   rspec-rails (~> 2.6)
   sass-rails (~> 3.2.3)
-  simple_form
+  simple-private-messages (= 0.0.0)!
+  simple_form!
   uglifier (>= 1.0.3)
   unicorn
-  webrat

@@ -1,0 +1,44 @@
+<div class="row-fluid">
+<%= render "link/menu_link" %>
+  <div class="span9">
+    <div class="row-fluid">
+    	<div class="span8">
+    		<div class="well">
+    			<h2>Daftar proposal</h2>
+    			<hr />
+    			<div class="row-fluid">
+	    			<div class="span5 hed">
+	    				Nama Pekerjaan
+	    			</div>
+	    			<div class="span4 hed">
+	    				Tanggal
+	    			</div>
+	    		</div>
+    			<% if @app.empty?%>
+    			<p>maaf belum ada pekerjaan yang terselesaikan </p>
+    			<% else %>
+    			<% @app.each do |f|%>
+    				<div class="row-fluid">
+	    					<div class="span5">
+	    						<%= link_to(f.job.title, job_path(f)) %>
+	    					</div>
+	    					<div class="span4">
+	    						<%= f.created_at.strftime("%d %B %Y") %>
+	    					</div>
+	    					<div class="span3 icon">
+	    						<%= link_to(image_tag('icon/user_18.png',:class => 'icon_tag',:title => 'lihat profil kontraktor'),'#') %>
+	    					</div>
+	    				</div>
+    				<% end %>
+    			<% end %>
+    		</div>
+    	</div>
+    	<div class="span4">
+    		<div class="well">
+    			<h3>Need help ??</h3>
+    			<p>read online guide <a href="#">here</a></p>
+    		</div>
+    	</div>
+    </div>
+  </div>
+</div>
