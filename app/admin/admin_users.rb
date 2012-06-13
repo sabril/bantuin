@@ -30,7 +30,7 @@ ActiveAdmin.register AdminUser do
   end
 end
 
-ActiveAdmin.register_page "Update My Password" do
+ActiveAdmin.register_page "UpdateMyPassword" do
   menu :parent => "System Settings"
   content do
     render  :partial => "admin/admin_users/new_password"

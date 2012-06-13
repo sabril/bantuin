@@ -6,7 +6,7 @@
 			<h2>Sign in</h2>
 		</div>
 		<%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-	  	<%= f.input :email,:input_html => { :class => "span11" },:wrapper => :prepend, :required => false, :autofocus => true %>
+	  	<%= f.input :email,:input_html => { :class => "span11" }, :required => false, :autofocus => true %>
  	 	<%= f.input :password,:input_html => { :class => "span11" },:wrapper_html => { :class => 'username' }, :required => false %>
  	    <%= f.input :remember_me, :as => :boolean if devise_mapping.rememberable? %>
  	 	<%= f.submit "Sign in", :class => "btn-primary btn-large" %> 
