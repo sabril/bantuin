@@ -48,4 +48,7 @@ $(document).ready(function(){
 		$( "#job_time_start" ).datepicker({ dateFormat: 'yy-mm-dd' });
 	});
 	
+	$( "#candidate_born_date" ).datepicker({ dateFormat: 'yy-mm-dd',  defaultDate: "1985-01-01", changeMonth: true,
+  			changeYear: true });
+	
 });

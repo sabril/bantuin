@@ -2,6 +2,8 @@ Bantuin::Application.routes.draw do
 
   mount Ckeditor::Engine => '/ckeditor'
   
+  resources :candidates
+  
   resources :messages do
     collection do
       get "index_outbox"

@@ -1,7 +1,9 @@
 <div class="span3">
 	<div class="well sidebar-nav">
 		<ul class="nav nav-list">
-			<li class="nav-header">Sidebar</li>
+			<li class="nav-header">Menu</li>
+			<li><a href="<%= root_path %>"><i class="icon-pencil icon"></i> Input Data</a></li>
+			<li><a href="<%= root_path %>"><i class="icon-file icon"></i> Cek Data</a></li>
 			<% if current_user %>
 				<li class="nav-header">DASHBOARD</li>
             	<% if current_user.roles_mask == 1 %>
