@@ -1,6 +1,14 @@
 GIT
-  remote: git://github.com/gregbell/active_admin.git
-  revision: d6912c91fd53adbde223f93ced8321aa41f4fadf
+  remote: https://github.com/galetahub/ckeditor.git
+  revision: 1824cb49f10e6bcdb9b7bcb4396c3159c80e3448
+  specs:
+    ckeditor (3.7.1)
+      mime-types
+      orm_adapter
+
+GIT
+  remote: https://github.com/gregbell/active_admin.git
+  revision: 749763ec5d9978a756d934e62ed6297a6fce2682
   specs:
     activeadmin (0.4.4)
       bourbon (>= 1.0.0)
@@ -15,25 +23,10 @@ GIT
       sass (>= 3.1.0)
 
 GIT
-  remote: git://github.com/jongilbraith/simple-private-messages.git
+  remote: https://github.com/jongilbraith/simple-private-messages.git
   revision: adf783407d924d3d94f33ec50912c65f8cdf5770
   specs:
     simple-private-messages (0.0.0)
-
-GIT
-  remote: git://github.com/sabril/less-rails-bootstrap.git
-  revision: e86fb09ff78bc344a20d4a02e7e8c27c574edc46
-  specs:
-    less-rails-bootstrap (2.0.3)
-      less-rails (~> 2.1.0)
-
-GIT
-  remote: https://github.com/galetahub/ckeditor.git
-  revision: 1824cb49f10e6bcdb9b7bcb4396c3159c80e3448
-  specs:
-    ckeditor (3.7.1)
-      mime-types
-      orm_adapter
 
 GIT
   remote: https://github.com/plataformatec/simple_form.git
@@ -42,6 +35,13 @@ GIT
     simple_form (2.0.2)
       actionpack (~> 3.0)
       activemodel (~> 3.0)
+
+GIT
+  remote: https://github.com/sabril/less-rails-bootstrap.git
+  revision: e86fb09ff78bc344a20d4a02e7e8c27c574edc46
+  specs:
+    less-rails-bootstrap (2.0.3)
+      less-rails (~> 2.1.0)
 
 GEM
   remote: https://rubygems.org/

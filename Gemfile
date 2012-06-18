@@ -9,10 +9,10 @@ gem 'pg'
 gem 'devise'
 gem 'rails-i18n'
 #gem 'twitter-bootstrap-rails', :git => 'http://github.com/seyhunak/twitter-bootstrap-rails.git'
-gem 'activeadmin', :git => 'git://github.com/gregbell/active_admin.git'
+gem 'activeadmin', :git => 'https://github.com/gregbell/active_admin.git'
 gem "carrierwave"
 gem "mini_magick"
-gem 'simple-private-messages', '0.0.0', :git => 'git://github.com/jongilbraith/simple-private-messages.git'
+gem 'simple-private-messages', '0.0.0', :git => 'https://github.com/jongilbraith/simple-private-messages.git'
 gem 'jquery-rails'
 gem "faker"
 gem "haml-rails"
@@ -31,7 +31,7 @@ gem "calendar_date_select"
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
-  gem 'less-rails-bootstrap', :git => "git://github.com/sabril/less-rails-bootstrap.git"
+  gem 'less-rails-bootstrap', :git => "https://github.com/sabril/less-rails-bootstrap.git"
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer'
 
