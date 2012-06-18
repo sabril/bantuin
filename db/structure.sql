@@ -187,7 +187,7 @@ ALTER SEQUENCE apps_id_seq OWNED BY apps.id;
 
 CREATE TABLE candidates (
     id integer NOT NULL,
-    number integer,
+    number character varying(255),
     full_name character varying(255),
     born_place character varying(255),
     born_date date,
@@ -209,7 +209,8 @@ CREATE TABLE candidates (
     final_task_plan text,
     agreement_letter character varying(255),
     created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL
+    updated_at timestamp without time zone NOT NULL,
+    status character varying(255)
 );
 
 
@@ -446,7 +447,7 @@ CREATE TABLE users (
     authentication_token character varying(255),
     premium boolean DEFAULT false,
     roles_mask integer DEFAULT 2,
-    time_zone character varying(255) DEFAULT 'Pacific Time (US & Canada)'::character varying,
+    time_zone character varying(255) DEFAULT 'Jakarta'::character varying,
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL,
     avatar character varying(255),
@@ -772,3 +773,5 @@ INSERT INTO schema_migrations (version) VALUES ('20120223181345');
 INSERT INTO schema_migrations (version) VALUES ('20120227165656');
 
 INSERT INTO schema_migrations (version) VALUES ('20120613043232');
+
+INSERT INTO schema_migrations (version) VALUES ('20120618002128');

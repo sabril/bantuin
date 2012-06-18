@@ -1,7 +1,7 @@
 class CreateCandidates < ActiveRecord::Migration
   def change
     create_table :candidates do |t|
-      t.integer :number
+      t.string :number
       t.string :full_name
       t.string :born_place
       t.date :born_date
