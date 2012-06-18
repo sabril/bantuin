@@ -1,12 +1,12 @@
 defaults: &defaults
-  adapter: postgresql
+  adapter: mysql
   encoding: utf8
   host: localhost
-  username: postgres
-  password: lophyounee86
+  username: root
+  password: 
  
 development:
-  database: bantuin_development
+  database: bantuin
   <<: *defaults
  
 test:
