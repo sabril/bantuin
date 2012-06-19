@@ -1,4 +1,8 @@
 class CandidatesController < ApplicationController
+  include Wicked::Wizard
+  
+  steps :bio, :legals, :documents
+  
   def create
     @candidate = Candidate.new(params[:candidate])
     if @candidate.save
@@ -11,6 +15,7 @@ class CandidatesController < ApplicationController
   end
   
   def show
-    @candidate = Candidate.find(params[:id])
+    #@candidate = Candidate.find(params[:id])
+    render_wizard
   end
 end
