@@ -8,10 +8,11 @@ gem 'rails', '3.2.6'
 gem 'pg'
 gem "mysql"
 gem 'devise'
-#gem 'rails-i18n'
+gem 'rails-i18n'
 #gem 'twitter-bootstrap-rails', :git => 'http://github.com/seyhunak/twitter-bootstrap-rails.git'
 gem 'activeadmin', :git => 'https://github.com/gregbell/active_admin.git'
 gem "carrierwave"
+gem 'carrierwave-processing'
 gem "mini_magick"
 gem 'simple-private-messages', '0.0.0', :git => 'https://github.com/jongilbraith/simple-private-messages.git'
 gem 'jquery-rails'
@@ -38,7 +39,7 @@ group :assets do
 
   gem 'uglifier', '>= 1.0.3'
 end
-
+gem 'pdfkit'
 gem "thin"
 gem "squeel"
 #gem 'wicked'

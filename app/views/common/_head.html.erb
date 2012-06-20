@@ -7,7 +7,7 @@
 <![endif]-->
 
 <%= javascript_include_tag "application" %>
-<%= stylesheet_link_tag "application" %>
+<%= stylesheet_link_tag "application", :media => :all %>
 <%= ajaxful_rating_style %>
 <%= csrf_meta_tag %>
 <%= yield(:head) %>

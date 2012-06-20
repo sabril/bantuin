@@ -1,4 +1,4 @@
-<div class="span6">
+<div class="span5">
 	<%= f.input :full_name, :required => false, :autofocus => true, :label => "Nama Lengkap" %>
 	<%= f.input :address, :as => :string, :required => false, :autofocus => true, :label => "Alamat" %>
 	<%= f.input :born_place, :required => false, :label => "Tempat Lahir"%>
@@ -9,7 +9,7 @@
 	<%= f.input :photo, :as => :file, :label => "Foto Berwarna Ukuran 4x6", :required => false %>
 	<%= f.hidden_field :photo_cache %>
 </div>
-<div class="span6">
+<div class="span5">
 	<%= f.input :from_university, :required => false, :label => "Asal Perguruan Tinggi"  %>
 	<%= f.input :from_program, :required => false, :label => "Asal Program Studi" %>
 	<%= f.input :rank, :as => :select, :collection => ["A", "B", "C", "Belum Terakreditasi"], :include_blank => false, :required => false, :label => "Akreditasi" %>

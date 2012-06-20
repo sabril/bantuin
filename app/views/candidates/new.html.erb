@@ -1,28 +1,15 @@
-<div class="row-fluid">
-	<%= render "link/menu_link" %>
-	<div class="span9">
-		<div class="row-fluid">
+<div class="row">
+	<%#= render "link/menu_link" %>
+	<div class="span12">
+		<div class="row">
 		<div class="span12">
 		  <div class="well">
-    		<h2>Informasi Peserta</h2>
-    		<hr/>
   			<%= simple_form_for(@candidate, :html => {:multipart => true }) do |f| %>
-  			  <% if @candidate.errors.any? %>
-            <div id="error_explanation" class="alert alert-error">
-              <a class="close" data-dismiss="alert">×</a>
-              <p><strong><%= pluralize(@candidate.errors.count, "error") %></strong> prohibited these informations from being saved:</p>
-              <ol>
-              <% @candidate.errors.full_messages.each do |msg| %>
-                <li><%= msg %></li>
-              <% end %>
-              </ol>
-            </div>
-          <% end %>
-    			<div class="row-fluid">
+    			<div class="row">
             <%= render partial: "#{@candidate.current_step}", :locals => { :f => f}%>
           </div>
           <br/>
-    			<%= f.submit "Selanjutnya", :class => "btn-primary btn-large" unless @candidate.last_step? %> <%= f.submit "Kembali", :name => "back_button", :class => "btn-primary btn-large" unless @candidate.first_step? %> 
+    			<%= f.submit "Selanjutnya", :class => "btn-primary btn-large" unless @candidate.last_step? %> <%= f.submit "Kembali", :name => "back_button", :class => "btn-primary btn-large" unless @candidate.first_step? %> <%= f.submit("Print", :name => "finish_button", :onClick=>"window.print(); " , :class => "btn-primary btn-large") if @candidate.last_step? %> 
   			<% end %>
 			</div>
 		</div>

@@ -92,6 +92,8 @@ GEM
     carrierwave (0.6.2)
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
+    carrierwave-processing (0.0.1)
+      carrierwave
     childprocess (0.3.2)
       ffi (~> 1.0.6)
     coffee-rails (3.2.2)
@@ -175,6 +177,7 @@ GEM
     mysql (2.8.1)
     nokogiri (1.5.4)
     orm_adapter (0.0.7)
+    pdfkit (0.5.2)
     pg (0.13.2)
     polyamorous (0.5.0)
       activerecord (~> 3.0)
@@ -196,6 +199,8 @@ GEM
       activesupport (= 3.2.6)
       bundler (~> 1.0)
       railties (= 3.2.6)
+    rails-i18n (0.6.4)
+      i18n (~> 0.5)
     rails3-generators (0.17.4)
       railties (>= 3.0.0)
     railties (3.2.6)
@@ -279,6 +284,7 @@ DEPENDENCIES
   cancan
   capybara
   carrierwave
+  carrierwave-processing
   ckeditor!
   coffee-rails (~> 3.2.1)
   country_select
@@ -293,9 +299,11 @@ DEPENDENCIES
   memcache-client
   mini_magick
   mysql
+  pdfkit
   pg
   quiet_assets
   rails (= 3.2.6)
+  rails-i18n
   rails3-generators
   rspec-rails (~> 2.6)
   sass-rails (~> 3.2.3)

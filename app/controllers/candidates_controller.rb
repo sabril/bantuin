@@ -30,17 +30,25 @@ class CandidatesController < ApplicationController
     @candidate = Candidate.find(params[:id])
     @candidate.current_step = session[:candidate_step]
     if params[:back_button]
-      @candidate.previous_step 
-    else  
+      unless @candidate.first_step?
+        @candidate.previous_step 
+      end
+    elsif @candidate.last_step?
+      # nothing to do here
+    else
       if @candidate.update_attributes(params[:candidate])
           @candidate.next_step
       end
     end
     @candidate.status = @candidate.current_step
-    puts @candidate.valid?
     @candidate.save
     session[:candidate_step] = @candidate.current_step
-    render :new
+    #unless params[:finish_button]
+      render :new
+    #else
+    #  session[:candidate_step] = nil
+    # redirect_to new_candidate_path
+    #end
   end
   
   def show

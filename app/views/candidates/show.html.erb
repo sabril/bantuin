@@ -1,8 +1,67 @@
-<div class="row-fluid">
-  <div class="span12">
-    <p>Nomor Peserta: <%= @candidate.number %></p>
-    <p>Silahkan mencetak bukti pendaftaran yang akan dikumpulkan beserta bukti pembayaran.</p>
-    <p>Pembayaran dikirimkan ke no. Rekening xxxxxxx sejumlah <%="#{number_to_currency(@candidate.number.to_s[4,7].to_i + 500000)}"%></p>
-    <p></p>
+<div class="span10">
+  <h2>Tanda Terima</h2>
+  <hr/>
+  <p>Pada hari ini, tanggal <%= Time.now.strftime("%d %B %Y")%>, telah diterima pemasukan data dan upload file calon mahasiswa dengan data sebagai berikut:</p>
+  <br/>
+  <div class="row">
+    <div class="span2">Nama</div><div class="span2">: <%= @candidate.full_name%></div>
+  </div>
+  <div class="row">
+    <div class="span2">Alamat</div><div class="span2">: <%= @candidate.address%></div>
+  </div>
+  <div class="row">
+    <div class="span2">Program Studi</div><div class="span2">: <%= @candidate.to_program%></div>
+  </div>
+  <div class="row">
+    <div class="span2">Email</div><div class="span2">: <%= @candidate.email%></div>
+  </div>
+  <div class="row">
+    <div class="span2">No. Peserta</div><div class="span2">: <%= @candidate.number%></div>
+  </div>
+  <br/>
+  <p>Selanjutnya dipersilahkan untuk membayar sejumlah <%="#{number_to_currency(@candidate.number.to_s[4,7].to_i + 500000, :unit => 'Rp.')}"%> ke Rekening Bank Mandiri a.n YPT/ITTelkom 7330180123.</p>
+  <br/>
+  <hr/>
+  <h2>Tanda Bukti Hadir Tes Tulis</h2>
+  <hr/>
+  <div class="row">
+    <div class="span2">
+      <%= image_tag(@candidate.photo.url(:medium), :size => "200x200")%>
+    </div>
+    <div class="span4">
+      <div class="row">
+        <div class="span2">Nama</div><div class="span2">: <%= @candidate.full_name%></div>
+      </div>
+      <div class="row">
+        <div class="span2">No. Peserta</div><div class="span2">: <%= @candidate.number%></div>
+      </div>
+      <div class="row">
+        <div class="span2">No. Telp</div><div class="span2">: <%= @candidate.phone%></div>
+      </div>
+      <div class="row">
+        <div class="span2">Email</div><div class="span2">: <%= @candidate.email%></div>
+      </div>
+      <br/>
+      <p>Tanda tangan dilakukan <b>PADA SAAT TES TERTULIS</b>.</p>
+    </div>
+  </div>
+  <br/>
+  <div class="row">
+    <div class="span4">
+      <p>Pengawas</p>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <p>(________________________________)</p>
+    </div>
+    <div class="span4">
+      <p>Peserta</p>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <p>(________________________________)</p>
+    </div>
   </div>
 </div>
