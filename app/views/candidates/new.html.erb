@@ -1,0 +1,20 @@
+<div class="row-fluid">
+	<%= render "link/menu_link" %>
+	<div class="span9">
+		<div class="row-fluid">
+		<div class="span12">
+		  <div class="well">
+    		<h2>Informasi Peserta</h2>
+    		<hr/>
+  			<%= simple_form_for(@candidate, :html => {:multipart => true }) do |f| %>
+    			<div class="row-fluid">
+            <%= render partial: "#{@candidate.current_step}", :locals => { :f => f}%>
+          </div>
+          <br/>
+    			<%= f.submit "Selanjutnya", :class => "btn-primary btn-large" unless @candidate.last_step? %> <%= f.submit "Kembali", :name => "back_button", :class => "btn-primary btn-large" unless @candidate.first_step? %> 
+  			<% end %>
+			</div>
+		</div>
+	</div>
+	</div>
+</div>  

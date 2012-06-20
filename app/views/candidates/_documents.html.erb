@@ -1,0 +1,6 @@
+<div class="span6">
+  <%= f.input :final_project, :as => :file, :label => "Penjelasan singkat proyek akhir yang dibuat (.doc)" %>
+  <%= f.input :agreement_letter, :as => :file, :label => "Surat kesanggupan yang dibuat sendiri dengan ditulis tangan + materai" %>
+  <label>Rencana Tugas Akhir</label><span class="error"><%= @candidate.errors[:final_task_plan][0]%></span>
+  <%= f.cktext_area :final_task_plan, :toolbar => 'Basic', :required => true, :label => "Rencana Tugas Akhir" %>
+</div>

@@ -31,7 +31,7 @@
         			<%= f.input :from_program, :required => true, :label => "Asal Program Studi" %>
         			<%= f.input :rank, :as => :select, :collection => ["A", "B", "C", "Belum Terakreditasi"], :include_blank => false, :required => true, :label => "Akreditasi" %>
       			  <%= f.input :toefl, :required => false, :label => "Skor TOEFL/EPRT" %>
-      			  <%= f.input :ipk, :required => false, :label => "IPK (x.xx)" %>
+      			  <%= f.input :ipk, :required => true, :label => "IPK (x.xx)" %>
       			  <%= f.input :to_program, :as => :select, :collection => [["Sistem Komputer","SK"], ["Teknik Telekomunikasi", "TT"], ["Teknik Informatika","IF"]], :include_blank => false, :required => true, :label => "Pilihan Prodi" %>
       			</div>
       			<div class="span6">
