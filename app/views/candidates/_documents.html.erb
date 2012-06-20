@@ -1,6 +1,13 @@
 <div class="span6">
+  <%= link_to("Download", @candidate.final_project.url, :target => "_blank") if @candidate.final_project? %>
   <%= f.input :final_project, :as => :file, :label => "Penjelasan singkat proyek akhir yang dibuat (.doc)" %>
+  <%= f.hidden_field :final_project_cache %>
+  <%= link_to("Download", @candidate.agreement_letter.url, :target => "_blank") if @candidate.agreement_letter? %>
   <%= f.input :agreement_letter, :as => :file, :label => "Surat kesanggupan yang dibuat sendiri dengan ditulis tangan + materai" %>
-  <label>Rencana Tugas Akhir</label><span class="error"><%= @candidate.errors[:final_task_plan][0]%></span>
-  <%= f.cktext_area :final_task_plan, :toolbar => 'Basic', :required => true, :label => "Rencana Tugas Akhir" %>
+  <%= f.hidden_field :agreement_letter_cache %>
+  <%= link_to("Download", @candidate.final_task_plan.url, :target => "_blank") if @candidate.final_task_plan? %>
+  <%= f.input :final_task_plan, :as => :file, :label => "Rencana tugas akhir" %>
+  <%= f.hidden_field :final_task_plan_cache %>
+  <!--<label>Rencana Tugas Akhir</label><span class="error"><%= @candidate.errors[:final_task_plan][0]%></span>-->
+  <%#= f.cktext_area :final_task_plan, :toolbar => 'Basic', :required => true, :label => "Rencana Tugas Akhir" %>
 </div>

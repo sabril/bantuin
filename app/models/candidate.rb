@@ -1,11 +1,11 @@
 class Candidate < ActiveRecord::Base
-  attr_accessible :address, :agreement_letter, :born_date, :born_place, :email, :field_activity_description_1, :field_activity_description_2, :final_project, :final_task_plan, :from_program, :from_university, :full_name, :ijazah, :ipk, :number, :phone, :photo, :rank, :to_program, :toefl, :transkrip_nilai, :photo_cache, :ijazah_cache, :transkrip_nilai_cache
+  attr_accessible :address, :agreement_letter, :born_date, :born_place, :email, :field_activity_description_1, :field_activity_description_2, :final_project, :final_task_plan, :from_program, :from_university, :full_name, :ijazah, :ipk, :number, :phone, :photo, :rank, :to_program, :toefl, :transkrip_nilai, :photo_cache, :ijazah_cache, :transkrip_nilai_cache, :final_project_cache, :agreement_letter_cache, :final_task_plan_cache
   validates :photo, :presence => true,
       :file_size => { 
         :maximum => 0.5.megabytes.to_i
-      }, :if => lambda {|o| o.current_step == "bio"}
+      }, :if => lambda {|o| o.current_step == "bio" || o.current_step == ""}
       
-  validates :ijazah, :transkrip_nilai, :field_activity_description_1, :presence => true, :file_size => {
+  validates :ijazah, :transkrip_nilai, :presence => true, :file_size => {
     :maximum => 1.megabytes.to_i
   }, :if => lambda {|o| o.current_step == "legals"}
   
@@ -13,9 +13,9 @@ class Candidate < ActiveRecord::Base
     :maximum => 1.megabytes.to_i
   }, :if => lambda {|o| o.current_step == "documents"}
   #validates_presence_of :address, :agreement_letter, :born_date, :born_place, :email, :field_activity_description_1, :final_project, :final_task_plan, :from_program, :from_university, :full_name, :ijazah, :ipk, :phone, :photo, :rank, :to_program, :transkrip_nilai
-  validates_presence_of :full_name, :address, :born_place, :born_date, :email, :phone, :from_university, :from_program, :rank, :ipk, :to_program, :if => lambda {|o| o.current_step == "bio"}
-  validates_presence_of :ijazah, :transkrip_nilai, :field_activity_description_1, :if => lambda {|o| o.current_step == "legals"}
-  validates_presence_of :final_task_plan, :if => lambda {|o| o.current_step == "documents"}
+  validates_presence_of :full_name, :address, :born_place, :born_date, :email, :phone, :from_university, :from_program, :rank, :ipk, :to_program, :if => lambda {|o| o.current_step == "bio" || o.current_step == ""}
+  validates_presence_of :ijazah, :transkrip_nilai, :if => lambda {|o| o.current_step == "legals"}
+  #validates_presence_of :final_task_plan, :if => lambda {|o| o.current_step == "documents"}
   validates_numericality_of :ipk, :greater_than_or_equal_to => 0.0, :less_than_or_equal_to => 4.0
   
 
@@ -27,6 +27,7 @@ class Candidate < ActiveRecord::Base
   mount_uploader :field_activity_description_2, FieldActivityDescriptionTwoUploader
   mount_uploader :final_project, FinalProjectUploader
   mount_uploader :agreement_letter, AgreementLetterUploader
+  mount_uploader :final_task_plan, FinalTaskPlanUploader
   
   before_create :check_number
   

@@ -62,4 +62,10 @@ $(document).ready(function(){
   $('#candidate_toefl').popover({title: "TOEFL/EPrT", content: "Tulis Score terakhir, maksimal 2 tahun."})
   $('#candidate_ipk').popover({title: "IPK", content: "Tulis IPK dengan skala 4. Khusus untuk Program Studi Teknik Informatika, IPK harus >= 3.00."})
   $('#candidate_to_program').popover({title: "Program Studi", content: "Pilih Program Studi Tujuan."})
+  $('#candidate_rank').popover({title: "Akreditasi Program Studi", content: "Pilih akreditasi program studi asal."})
+  $('#candidate_ijazah').popover({title: "Ijazah", content: "Ijazah dengan ukuran A4/Folio, format: jpeg, pdf, png. Max: 500 KB."})
+  $('#candidate_transkrip_nilai').popover({title: "Transkrip Nilai", content: "Transkrip nilai dengan ukuran A4/Folio, format: jpeg, pdf, png. Jika lebih dari 1 halaman sebaiknya dalam format pdf. Max: 500 KB."})
+  $('#candidate_field_activity_description_1').popover({title: "Surat Keterangan Kegiatan Mahasiswa", content: "Format pdf, doc. Max: 500 KB."})
+  $('#candidate_final_project').popover({title: "Proyek Akhir", content: "Penjelasan singkat tentang proyek akhir yang dikerjakan. Format pdf, doc."})
+  $('#candidate_agreement_letter').popover({title: "Pernyataan Kesanggupan", content: "Surat kesanggupan yang dibuat sendiri, ditanda tangani di atas materai 1 halaman A4/folio, dan discan."})
 });
