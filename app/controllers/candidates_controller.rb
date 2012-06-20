@@ -30,14 +30,14 @@ class CandidatesController < ApplicationController
     @candidate = Candidate.find(params[:id])
     @candidate.current_step = session[:candidate_step]
     if params[:back_button]
-      @candidate.previous_step
+      @candidate.previous_step 
     else  
       if @candidate.update_attributes(params[:candidate])
-        @candidate.next_step
+          @candidate.next_step
       end
     end
     @candidate.status = @candidate.current_step
-    puts @candidate.inspect
+    puts @candidate.valid?
     @candidate.save
     session[:candidate_step] = @candidate.current_step
     render :new

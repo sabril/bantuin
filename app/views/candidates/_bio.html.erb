@@ -5,8 +5,9 @@
 	<%= f.input :born_date, :as => :string, :label => "Tanggal Lahir", :required => false %>
 	<%= f.input :email, :required => false  %>
 	<%= f.input :phone, :required => false, :label => "Nomor Telepon"  %>
-	<%= image_tag(@candidate.photo.url, :size => "200x200") if @candidate.photo.url %>
+	<%= image_tag(@candidate.photo.url, :size => "200x200") if @candidate.photo? %>
 	<%= f.input :photo, :as => :file, :label => "Foto Berwarna Ukuran 4x6", :required => false %>
+	<%= f.hidden_field :photo_cache %>
 </div>
 <div class="span6">
 	<%= f.input :from_university, :required => false, :label => "Asal Perguruan Tinggi"  %>
@@ -14,5 +15,5 @@
 	<%= f.input :rank, :as => :select, :collection => ["A", "B", "C", "Belum Terakreditasi"], :include_blank => false, :required => false, :label => "Akreditasi" %>
   <%= f.input :toefl, :required => false, :label => "Skor TOEFL/EPrT" %>
   <%= f.input :ipk, :required => false, :label => "IPK (x.xx)" %>
-  <%= f.input :to_program, :as => :select, :collection => [["Sistem Komputer","SK"], ["Teknik Telekomunikasi", "TT"], ["Teknik Informatika","IF"]], :include_blank => false, :required => false, :label => "Pilihan Prodi" %>
+  <%= f.input :to_program, :as => :select, :collection => [["Teknik Telekomunikasi", "TT"], ["Teknik Informatika","IF"], ["Sistem Komputer","SK"] ], :include_blank => false, :required => false, :label => "Pilihan Prodi" %>
 </div>

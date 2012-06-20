@@ -1,10 +1,24 @@
 class Candidate < ActiveRecord::Base
-  attr_accessible :address, :agreement_letter, :born_date, :born_place, :email, :field_activity_description_1, :field_activity_description_2, :final_project, :final_task_plan, :from_program, :from_university, :full_name, :ijazah, :ipk, :number, :phone, :photo, :rank, :to_program, :toefl, :transkrip_nilai
+  attr_accessible :address, :agreement_letter, :born_date, :born_place, :email, :field_activity_description_1, :field_activity_description_2, :final_project, :final_task_plan, :from_program, :from_university, :full_name, :ijazah, :ipk, :number, :phone, :photo, :rank, :to_program, :toefl, :transkrip_nilai, :photo_cache, :ijazah_cache, :transkrip_nilai_cache
+  validates :photo, :presence => true,
+      :file_size => { 
+        :maximum => 0.5.megabytes.to_i
+      }, :if => lambda {|o| o.current_step == "bio"}
+      
+  validates :ijazah, :transkrip_nilai, :field_activity_description_1, :presence => true, :file_size => {
+    :maximum => 1.megabytes.to_i
+  }, :if => lambda {|o| o.current_step == "legals"}
+  
+  validates :agreement_letter, :final_project, :presence => true, :file_size => {
+    :maximum => 1.megabytes.to_i
+  }, :if => lambda {|o| o.current_step == "documents"}
   #validates_presence_of :address, :agreement_letter, :born_date, :born_place, :email, :field_activity_description_1, :final_project, :final_task_plan, :from_program, :from_university, :full_name, :ijazah, :ipk, :phone, :photo, :rank, :to_program, :transkrip_nilai
-  validates_presence_of :full_name, :address, :born_place, :born_date, :email, :phone, :from_university, :from_program, :rank, :ipk, :to_program, :photo, :if => :on_bio?
-  validates_presence_of :ijazah, :transkrip_nilai, :field_activity_description_1, :if => :on_legals?
-  validates_presence_of :agreement_letter, :final_project, :final_task_plan, :if => :on_documents?
+  validates_presence_of :full_name, :address, :born_place, :born_date, :email, :phone, :from_university, :from_program, :rank, :ipk, :to_program, :if => lambda {|o| o.current_step == "bio"}
+  validates_presence_of :ijazah, :transkrip_nilai, :field_activity_description_1, :if => lambda {|o| o.current_step == "legals"}
+  validates_presence_of :final_task_plan, :if => lambda {|o| o.current_step == "documents"}
   validates_numericality_of :ipk, :greater_than_or_equal_to => 0.0, :less_than_or_equal_to => 4.0
+  
+
   
   mount_uploader :photo, PhotoUploader
   mount_uploader :ijazah, IjazahUploader

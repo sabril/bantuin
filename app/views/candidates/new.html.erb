@@ -7,6 +7,17 @@
     		<h2>Informasi Peserta</h2>
     		<hr/>
   			<%= simple_form_for(@candidate, :html => {:multipart => true }) do |f| %>
+  			  <% if @candidate.errors.any? %>
+            <div id="error_explanation" class="alert alert-error">
+              <a class="close" data-dismiss="alert">×</a>
+              <p><strong><%= pluralize(@candidate.errors.count, "error") %></strong> prohibited these informations from being saved:</p>
+              <ol>
+              <% @candidate.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+              </ol>
+            </div>
+          <% end %>
     			<div class="row-fluid">
             <%= render partial: "#{@candidate.current_step}", :locals => { :f => f}%>
           </div>

@@ -1,5 +1,11 @@
 <div class="span6">
+  <%= image_tag(@candidate.ijazah.url, :size => "200x200") if @candidate.ijazah? %>
   <%= f.input :ijazah, :as => :file, :label => "File Ijazah yang dilegalisir" %>
+  <%= f.hidden_field :ijazah_cache %>
+  <%= image_tag(@candidate.transkrip_nilai.url, :size => "200x200") if @candidate.transkrip_nilai? %>
   <%= f.input :transkrip_nilai, :as => :file, :label => "File Transkrip Nilai yang dilegalisir" %>
+  <%= f.hidden_field :transkrip_nilai_cache %>
+  <%= image_tag(@candidate.field_activity_description_1.url, :size => "200x200") if @candidate.field_activity_description_1? %>
   <%= f.input :field_activity_description_1, :as => :file, :label => "Surat keterangan kegiatan mahasiswa yg sesuai dengan bidang ilmu" %>
+  <%#= f.hidden_field :field_activity_description_one_nilai_cache %>
 </div>

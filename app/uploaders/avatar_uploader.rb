@@ -1,5 +1,5 @@
 # encoding: utf-8
-
+require 'file_size_validator'
 class AvatarUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or MiniMagick support:

@@ -8,7 +8,7 @@ gem 'rails', '3.2.6'
 gem 'pg'
 gem "mysql"
 gem 'devise'
-gem 'rails-i18n'
+#gem 'rails-i18n'
 #gem 'twitter-bootstrap-rails', :git => 'http://github.com/seyhunak/twitter-bootstrap-rails.git'
 gem 'activeadmin', :git => 'https://github.com/gregbell/active_admin.git'
 gem "carrierwave"
