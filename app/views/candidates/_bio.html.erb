@@ -5,7 +5,7 @@
 	<%= f.input :born_date, :as => :string, :label => "Tanggal Lahir", :required => false %>
 	<%= f.input :email, :required => false  %>
 	<%= f.input :phone, :required => false, :label => "Nomor Telepon"  %>
-	<%= image_tag(@candidate.photo.url, :size => "200x200")%>
+	<%= image_tag(@candidate.photo.url, :size => "200x200") if @candidate.photo.url %>
 	<%= f.input :photo, :as => :file, :label => "Foto Berwarna Ukuran 4x6", :required => false %>
 </div>
 <div class="span6">
