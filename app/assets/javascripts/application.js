@@ -50,5 +50,16 @@ $(document).ready(function(){
 	
 	$( "#candidate_born_date" ).datepicker({ dateFormat: 'yy-mm-dd',  defaultDate: "1985-01-01", changeMonth: true,
   			changeYear: true });
-	
+  			
+  $('#candidate_full_name').popover({title: "Nama Lengkap", content: "Sesuai dengan yang ada di ijazah."})
+	$('#candidate_address').popover({title: "Alamat", content: "Alamat surat harus dijamin sampai. Kalau perlu lengkap dengan RT/RW dan Kode Pos."})
+  $('#candidate_born_place').popover({title: "Tempat Lahir", content: "Sesuai dengan yang ada di ijazah/KTP."})
+  $('#candidate_born_date').popover({title: "Tanggal Lahir", content: "Sesuai dengan yang ada di ijazah/KTP."})
+  $('#candidate_email').popover({title: "Email", content: "Email harus valid."})
+  $('#candidate_phone').popover({title: "Telepon/Handphone", content: "yang dapat dihubungi."})
+  $('#candidate_from_university').popover({title: "Asal Universitas", content: "Nama Perguruan Tinggi dan Kota."})
+  $('#candidate_from_program').popover({title: "Asal Program Studi", content: "Nama Program Studi jangan disingkat."})
+  $('#candidate_toefl').popover({title: "TOEFL/EPrT", content: "Tulis Score terakhir, maksimal 2 tahun."})
+  $('#candidate_ipk').popover({title: "IPK", content: "Tulis IPK dengan skala 4. Khusus untuk Program Studi Teknik Informatika, IPK harus >= 3.00."})
+  $('#candidate_to_program').popover({title: "Program Studi", content: "Pilih Program Studi Tujuan."})
 });
