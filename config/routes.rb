@@ -52,7 +52,7 @@ Bantuin::Application.routes.draw do
   ActiveAdmin.routes(self)
 
   devise_for :admin_users, ActiveAdmin::Devise.config
-  root :to => "candidates#new"
+  root :to => "home#index"
   match 'home/about' => "home#about"
   match 'home/contact' => "home#contact"
   # The priority is based upon order of creation:

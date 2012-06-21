@@ -1,54 +1,7 @@
 <div class="row-fluid">
-	<%= render "link/menu_link" %>
-	<div class="span9">
-		<div class="row-fluid">
-		<div class="span12">
-		  <div class="well">
-    		<h2>Biodata</h2>
-    		<hr/>
-  			<%= simple_form_for(@candidate, :html => {:multipart => true }) do |f| %>
-  			  <% if @candidate.errors.any? %>
-            <div id="error_explanation" class="alert alert-error">
-              <a class="close" data-dismiss="alert">×</a>
-              <p><strong><%= pluralize(@candidate.errors.count, "error") %></strong> prohibited these informations from being saved:</p>
-              <ol>
-              <% @candidate.errors.full_messages.each do |msg| %>
-                <li><%= msg %></li>
-              <% end %>
-              </ol>
-            </div>
-          <% end %>
-    			<div class="row-fluid">
-    			  <div class="span6">
-        			<%= f.input :photo, :as => :file, :label => "Foto Berwarna Ukuran 4x6" %>
-        			<%= f.input :full_name, :required => true, :autofocus => true, :label => "Nama Lengkap" %>
-        			<%= f.input :address, :as => :string, :required => true, :autofocus => true, :label => "Alamat" %>
-        			<%= f.input :born_place, :required => true, :label => "Tempat Lahir"%>
-        			<%= f.input :born_date, :as => :string, :label => "Tanggal Lahir", :required => true %>
-        			<%= f.input :email, :required => true  %>
-        			<%= f.input :phone, :required => true, :label => "Nomor Telepon"  %>
-        			<%= f.input :from_university, :required => true, :label => "Asal Perguruan Tinggi"  %>
-        			<%= f.input :from_program, :required => true, :label => "Asal Program Studi" %>
-        			<%= f.input :rank, :as => :select, :collection => ["A", "B", "C", "Belum Terakreditasi"], :include_blank => false, :required => true, :label => "Akreditasi" %>
-      			  <%= f.input :toefl, :required => false, :label => "Skor TOEFL/EPRT" %>
-      			  <%= f.input :ipk, :required => true, :label => "IPK (x.xx)" %>
-      			  <%= f.input :to_program, :as => :select, :collection => [["Sistem Komputer","SK"], ["Teknik Telekomunikasi", "TT"], ["Teknik Informatika","IF"]], :include_blank => false, :required => true, :label => "Pilihan Prodi" %>
-      			</div>
-      			<div class="span6">
-      			  <%= f.input :ijazah, :as => :file, :label => "File Ijazah yang dilegalisir" %>
-      			  <%= f.input :transkrip_nilai, :as => :file, :label => "File Transkrip Nilai yang dilegalisir" %>
-      			  <%= f.input :field_activity_description_1, :as => :file, :label => "Surat keterangan kegiatan mahasiswa yg sesuai dengan bidang ilmu" %>
-      			  <%#= f.input :field_activity_description_2, :as => :file, :label => "Foto Berwarna Ukuran 4x6" %>
-      			  <%= f.input :final_project, :as => :file, :label => "Penjelasan singkat proyek akhir yang dibuat (.doc)" %>
-      			  <%= f.input :agreement_letter, :as => :file, :label => "Surat kesanggupan yang dibuat sendiri dengan ditulis tangan + materai" %>
-              <label>Rencana Tugas Akhir</label>
-              <%= f.cktext_area :final_task_plan, :toolbar => 'Basic', :required => true, :label => "Rencana Tugas Akhir" %>
-            </div>
-          </div>
-    			<%= f.submit "Daftar", :class => "btn-primary btn-large" %> 
-  			<% end %>
-			</div>
-		</div>
+	<%#= render "link/menu_link" %>
+	<div class="span12">
+		<div class="alert alert-notice">Maaf untuk sementara aplikasi belum dapat dijalankan karena menunggu ijin dari Rektor.</div>
 	</div>
 	</div>
 </div>
