@@ -1,5 +1,5 @@
 class Candidate < ActiveRecord::Base
-  attr_accessible :address, :agreement_letter, :born_date, :born_place, :email, :field_activity_description_1, :field_activity_description_2, :final_project, :final_task_plan, :from_program, :from_university, :full_name, :ijazah, :ipk, :number, :phone, :photo, :rank, :to_program, :toefl, :transkrip_nilai, :photo_cache, :ijazah_cache, :transkrip_nilai_cache, :final_project_cache, :agreement_letter_cache, :final_task_plan_cache
+  attr_accessible :address, :agreement_letter, :born_date, :born_place, :email, :field_activity_description_1, :field_activity_description_2, :final_project, :final_task_plan, :from_program, :from_university, :full_name, :ijazah, :ipk, :number, :phone, :photo, :rank, :to_program, :toefl, :transkrip_nilai, :photo_cache, :ijazah_cache, :transkrip_nilai_cache, :final_project_cache, :agreement_letter_cache, :final_task_plan_cache, :sumbangan
   validates :photo, :presence => true,
       :file_size => { 
         :maximum => 0.5.megabytes.to_i
@@ -32,6 +32,7 @@ class Candidate < ActiveRecord::Base
   before_create :check_number
   
   validate :check_ipk
+  validate :check_sumbangan
   
   attr_writer :current_step
   
@@ -39,6 +40,14 @@ class Candidate < ActiveRecord::Base
   def check_ipk
     if self.to_program == "IF" && ipk < 3
       errors.add(:ipk, " untuk program studi Teknik Informatika harus >= 3.00")
+    end
+  end
+  
+  def check_sumbangan
+    if (self.to_program == "IF" || self.to_program == "TT") && sumbangan < 6000000
+      errors.add(:sumbangan, " untuk program studi Teknik Informatika dan Teknik Telekomunikasi minimal sumbangan Rp.6.000.000,-")
+    elsif self.to_program == "SK"  && sumbangan < 4000000
+      errors.add(:sumbangan, " untuk program studi Sistem Komputer minimal sumbangan Rp.4.000.000,-")
     end
   end
   
