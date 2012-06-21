@@ -1,5 +1,5 @@
 <div class="span10">
-  <h2>Tanda Terima</h2>
+  <h2>Tanda Terima Input Data / KARTU UJIAN</h2>
   <hr/>
   <p>Pada hari ini, tanggal <%= Time.now.strftime("%d %B %Y")%>, telah diterima pemasukan data dan upload file calon mahasiswa dengan data sebagai berikut:</p>
   <br/>
@@ -20,18 +20,36 @@
           </tr>
           <tr>
             <td style="width: 150px;">Program Studi</td>
-            <td>: <%= @candidate.to_program%></td>
+            <td>: <%= @candidate.program_studi%></td>
           </tr>
           <tr>
             <td style="width: 150px;">Email</td>
             <td>: <%= @candidate.email%></td>
           </tr>
           <tr>
-            <td style="width: 150px;">No. Peserta</td>
+            <td style="width: 150px;" >No. Peserta</td>
             <td>: <%= @candidate.number%></td>
+          </tr>
+          <tr>
+            <td style="width: 150px;">Tanda Tangan</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td style="width: 150px;">
+              <br/>
+              <br/>
+              <br/>
+              <br/>
+              <br/>
+              (__________________________________)
+            </td>
+            <td></td>
           </tr>
         </table>
       </td>
+    </tr>
+    <tr>
+      <td>Tanda Bukti Kehadiran Ujian (ditandangani pada saat ujian tulis)</td>
     </tr>
     <tr>
       <td>
@@ -53,7 +71,7 @@
     </tr>
   </table>
   <br/>
-  <p>Selanjutnya dipersilahkan untuk membayar sejumlah <%="#{number_to_currency(@candidate.number.to_s[4,7].to_i + 500000, :unit => 'Rp.')}"%> ke Rekening Bank Mandiri a.n YPT/ITTelkom 7330180123.</p>
+  <p>Selanjutnya dipersilahkan untuk membayar sejumlah <%="#{number_to_currency(@candidate.number.to_s[4,7].to_i + 500000, :unit => 'Rp.')}"%> ke Rekening Bank Mandiri a.n YPT/ITTelkom 131009202130.</p>
   <br/>
   <hr/>
   <!-- <h2>Tanda Bukti Hadir Tes Tulis</h2>

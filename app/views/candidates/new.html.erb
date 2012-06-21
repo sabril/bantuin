@@ -1,6 +1,15 @@
 <div class="row">
 	<%#= render "link/menu_link" %>
+	
 	<div class="span12">
+	  <div id="error_explanation" class="alert alert-error">
+      <p><strong>Perlu Diperhatikan:</strong></p>
+      <ol>
+        <li>Data harus diisi dengan benar sebagai syarat diterima.</li>
+        <li>Jangan membeli PIN SMBB 2012, karena berbeda rekening.</li>
+        <li>Perhatikan Informasi yang akan dikirimkan melalui sms/email yang benar harus dari 0818641064/brh@ittelkom.ac.id.</li>
+      </ol>
+    </div>
 		<div class="row">
 		<div class="span12">
 		  <div class="well">
@@ -9,7 +18,7 @@
             <%= render partial: "#{@candidate.current_step}", :locals => { :f => f}%>
           </div>
           <br/>
-    			<%= f.submit "Selanjutnya", :class => "btn-primary btn-large" unless @candidate.last_step? %> <%= f.submit "Kembali", :name => "back_button", :class => "btn-primary btn-large" unless @candidate.first_step? %> <%= f.submit("Print", :name => "finish_button", :onClick=>"window.print(); " , :class => "btn-primary btn-large") if @candidate.last_step? %> 
+    			<%= f.submit "Selanjutnya", "data-loading-text" => "Loading...", :class => "btn btn-primary btn-large" unless @candidate.last_step? %> <%= f.submit "Kembali", :name => "back_button", :class => "btn-primary btn-large" unless @candidate.first_step? %> <%= f.submit("Print", :name => "finish_button", :onClick=>"window.print(); " , :class => "btn-primary btn-large") if @candidate.last_step? %> 
   			<% end %>
 			</div>
 		</div>

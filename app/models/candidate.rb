@@ -104,4 +104,14 @@ class Candidate < ActiveRecord::Base
   def last_step?
     current_step == steps.last
   end
+  
+  def program_studi
+    if self.to_program == "IF"
+      "Teknik Informatika"
+    elsif self.to_program == "TT"
+      "Teknik Telekomunikasi"
+    else
+      "Sistem Komputer"
+    end
+  end
 end

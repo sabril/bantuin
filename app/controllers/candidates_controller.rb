@@ -1,6 +1,7 @@
 class CandidatesController < ApplicationController
   
   def create
+    sleep(20)
     @candidate = Candidate.new(params[:candidate])
     # session[:candidate_params].deep_merge!(params[:candidate]) if params[:candidate]
     # @candidate = Candidate.new(session[:candidate_params])
