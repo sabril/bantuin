@@ -68,4 +68,5 @@ $(document).ready(function(){
   $('#candidate_field_activity_description_1').popover({title: "Surat Keterangan Kegiatan Mahasiswa", content: "Format pdf, doc. Max: 500 KB."})
   $('#candidate_final_project').popover({title: "Proyek Akhir", content: "Penjelasan singkat tentang proyek akhir yang dikerjakan. Format pdf, doc."})
   $('#candidate_agreement_letter').popover({title: "Pernyataan Kesanggupan", content: "Surat kesanggupan yang dibuat sendiri, ditanda tangani di atas materai 1 halaman A4/folio, dan discan."})
+  $('#candidate_sumbangan').popover({title: "Sumbangan Sukarela", content: "Jumlah minimal sumbangan sukarela yang akan diberikan jika diterima."})
 });
