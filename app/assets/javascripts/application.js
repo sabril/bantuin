@@ -69,4 +69,23 @@ $(document).ready(function(){
   $('#candidate_final_project').popover({title: "Proyek Akhir", content: "Penjelasan singkat tentang proyek akhir yang dikerjakan. Format pdf, doc."})
   $('#candidate_agreement_letter').popover({title: "Pernyataan Kesanggupan", content: "Surat kesanggupan yang dibuat sendiri, ditanda tangani di atas materai 1 halaman A4/folio, dan discan."})
   $('#candidate_sumbangan').popover({title: "Sumbangan Sukarela", content: "Jumlah minimal sumbangan sukarela yang akan diberikan jika diterima. Untuk program studi Teknik Telekomunikasi dan Informatika, jumlah minimal sumbangan sukarela adalah Rp.6.000.000,- sedangkan untuk Program Studi Sistem Komputer jumlah minimal sumbangan sukarela Rp.4.000.000,-"})
+  
+  if ($('#candidate_alumni').is(':checked')) {
+    $('#candidate_from_university').val('IT Telkom');
+    $('#candidate_from_university').attr('disabled', true);
+  }else{
+    $('#candidate_from_university').val('');
+    $('#candidate_from_university').attr('disabled', false);
+  }
+  
+  $('#candidate_alumni').click(function(){
+    if ($('#candidate_alumni').is(':checked')) {
+      $('#candidate_from_university').val('IT Telkom');
+      $('#candidate_from_university').attr('disabled', true);
+    }else{
+      $('#candidate_from_university').val('');
+      $('#candidate_from_university').attr('disabled', false);
+    }
+    
+  });
 });

@@ -1,5 +1,5 @@
 class Candidate < ActiveRecord::Base
-  attr_accessible :address, :agreement_letter, :born_date, :born_place, :email, :field_activity_description_1, :field_activity_description_2, :final_project, :final_task_plan, :from_program, :from_university, :full_name, :ijazah, :ipk, :number, :phone, :photo, :rank, :to_program, :toefl, :transkrip_nilai, :photo_cache, :ijazah_cache, :transkrip_nilai_cache, :final_project_cache, :agreement_letter_cache, :final_task_plan_cache, :sumbangan
+  attr_accessible :address, :agreement_letter, :born_date, :born_place, :email, :field_activity_description_1, :field_activity_description_2, :final_project, :final_task_plan, :from_program, :from_university, :full_name, :ijazah, :ipk, :number, :phone, :photo, :rank, :to_program, :toefl, :transkrip_nilai, :photo_cache, :ijazah_cache, :transkrip_nilai_cache, :final_project_cache, :agreement_letter_cache, :final_task_plan_cache, :sumbangan, :alumni
   validates :photo, :presence => true,
       :file_size => { 
         :maximum => 0.5.megabytes.to_i
@@ -13,7 +13,8 @@ class Candidate < ActiveRecord::Base
     :maximum => 1.megabytes.to_i
   }, :if => lambda {|o| o.current_step == "documents"}
   #validates_presence_of :address, :agreement_letter, :born_date, :born_place, :email, :field_activity_description_1, :final_project, :final_task_plan, :from_program, :from_university, :full_name, :ijazah, :ipk, :phone, :photo, :rank, :to_program, :transkrip_nilai
-  validates_presence_of :full_name, :address, :born_place, :born_date, :email, :phone, :from_university, :from_program, :rank, :ipk, :to_program, :if => lambda {|o| o.current_step == "bio" || o.current_step == ""}
+  validates_presence_of :full_name, :address, :born_place, :born_date, :email, :phone, :from_program, :rank, :ipk, :to_program, :if => lambda {|o| o.current_step == "bio" || o.current_step == ""}
+  validates_presence_of :from_university, :if => lambda {|o| o.alumni? == false}
   validates_presence_of :ijazah, :transkrip_nilai, :if => lambda {|o| o.current_step == "legals"}
   #validates_presence_of :final_task_plan, :if => lambda {|o| o.current_step == "documents"}
   validates_numericality_of :ipk, :greater_than_or_equal_to => 0.0, :less_than_or_equal_to => 4.0
@@ -30,11 +31,18 @@ class Candidate < ActiveRecord::Base
   mount_uploader :final_task_plan, FinalTaskPlanUploader
   
   before_create :check_number
+  before_save :check_alumni
   
   validate :check_ipk
   validate :check_sumbangan
   
   attr_writer :current_step
+  
+  def check_alumni
+    if alumni?
+      from_university = "IT Telkom"
+    end
+  end
   
   
   def check_ipk
@@ -44,10 +52,18 @@ class Candidate < ActiveRecord::Base
   end
   
   def check_sumbangan
-    if (self.to_program == "IF" || self.to_program == "TT") && sumbangan < 6000000
-      errors.add(:sumbangan, " untuk program studi Teknik Informatika dan Teknik Telekomunikasi minimal sumbangan Rp.6.000.000,-")
-    elsif self.to_program == "SK"  && sumbangan < 4000000
-      errors.add(:sumbangan, " untuk program studi Sistem Komputer minimal sumbangan Rp.4.000.000,-")
+    unless self.alumni? 
+      if (self.to_program == "IF" || self.to_program == "TT") && sumbangan < 6000000
+        errors.add(:sumbangan, " untuk program studi Teknik Informatika dan Teknik Telekomunikasi minimal sumbangan Rp.6.000.000,-")
+      elsif self.to_program == "SK"  && sumbangan < 4000000
+        errors.add(:sumbangan, " untuk program studi Sistem Komputer minimal sumbangan Rp.4.000.000,-")
+      end
+    else
+      if (self.to_program == "IF" || self.to_program == "TT") && sumbangan < 4500000
+        errors.add(:sumbangan, " untuk program studi Teknik Informatika dan Teknik Telekomunikasi minimal sumbangan Rp.4.500.000,-")
+      elsif self.to_program == "SK"  && sumbangan < 3000000
+        errors.add(:sumbangan, " untuk program studi Sistem Komputer minimal sumbangan Rp.3.000.000,-")
+      end
     end
   end
   

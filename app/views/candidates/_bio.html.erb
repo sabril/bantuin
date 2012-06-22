@@ -6,10 +6,11 @@
 	<%= f.input :email, :required => true  %>
 	<%= f.input :phone, :required => true, :label => "Nomor Telepon"  %>
 	<%= image_tag(@candidate.photo.url, :size => "200x200") if @candidate.photo? %>
-	<%= f.input :photo, :as => :file, :label => "Foto Berwarna Ukuran 4x6", :required => true %>
+	<%= f.input :photo, :as => :file, :label => "Foto Berwarna Ukuran 4x6", :required => false %>
 	<%= f.hidden_field :photo_cache %>
 </div>
 <div class="span5">
+  <%= f.input :alumni, :label => "Alumni IT Telkom"%>
 	<%= f.input :from_university, :required => true, :label => "Asal Perguruan Tinggi"  %>
 	<%= f.input :from_program, :required => true, :label => "Asal Program Studi" %>
 	<%= f.input :rank, :as => :select, :collection => ["A", "B", "C", "Belum Terakreditasi"], :include_blank => false, :required => false, :label => "Akreditasi" %>

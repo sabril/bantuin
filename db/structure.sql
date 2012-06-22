@@ -211,7 +211,8 @@ CREATE TABLE candidates (
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL,
     status character varying(255),
-    sumbangan double precision
+    sumbangan double precision,
+    alumni boolean
 );
 
 
@@ -778,3 +779,5 @@ INSERT INTO schema_migrations (version) VALUES ('20120613043232');
 INSERT INTO schema_migrations (version) VALUES ('20120618002128');
 
 INSERT INTO schema_migrations (version) VALUES ('20120620073336');
+
+INSERT INTO schema_migrations (version) VALUES ('20120622125644');
