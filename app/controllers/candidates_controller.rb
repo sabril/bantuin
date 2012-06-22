@@ -56,7 +56,6 @@ class CandidatesController < ApplicationController
   end
   
   def new
-    redirect_to root_path
     session[:candidate_params] ||= {}
     @candidate = Candidate.new
   end
