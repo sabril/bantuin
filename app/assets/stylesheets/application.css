@@ -11,7 +11,7 @@
  *= require twitter/bootstrap
  *= require bootstrap-responsive
  * *= require ajaxful_rating
- *= require start/jquery.ui.all
+ *= require jquery.ui.datepicker
 */
 /* Override some defaults */
 
